@@ -1,11 +1,11 @@
-import { FC } from 'react'
+import { FC } from 'react';
 
 const Banner: FC = () => {
-    return (
-      <div>
-          Banner
-      </div>
-    )
-  }
+  return (
+    <section>
+      Banner
+    </section>
+  )
+}
 
-  export default Banner;
+export default Banner;
