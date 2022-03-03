@@ -1,9 +1,15 @@
 import { FC } from 'react';
+import { useTranslation } from 'next-i18next';
+import Link from 'next/link'
 import Image from 'next/image';
 import logo from '../assets/logo.svg';
+import { useRouter } from 'next/router';
 
 const Navbar: FC = () => {
+    let { locale }: { locale?: string } = useRouter();
+    locale = locale || 'es';
     const sections = ['technologies', 'courses', 'about', 'contact'];
+    const { t } = useTranslation('common');
     return (
         <nav className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5">
             <div className="container flex flex-wrap justify-between items-center mx-auto">
@@ -22,11 +28,28 @@ const Navbar: FC = () => {
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter">
                         {sections.map((section, index) => (
                             <li key={index}>
-                                <a href={`#${section}`} className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
-                                    {section}
-                                </a>
+                                <Link href={`#${section}`} locale={locale}>
+                                    <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                        {t(section)}
+                                    </a>
+                                </Link>
+
                             </li>
                         ))}
+                        <li>
+                            <Link href="/" locale="es">
+                                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    Español
+                                </a>
+                            </Link>
+                        </li>
+                        <li>
+                            <Link href="/" locale="en">
+                                <a className="block py-2 pr-4 pl-3 text-gray-700 border-b border-gray-100 hover:bg-gray-50 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-gray-400 md:dark:hover:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">
+                                    English
+                                </a>
+                            </Link>
+                        </li>
                     </ul>
                 </div>
             </div>
