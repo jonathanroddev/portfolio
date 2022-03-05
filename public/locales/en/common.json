@@ -4,5 +4,8 @@
     "about": "About",
     "contact": "Contact",
     "es": "Spanish",
-    "en": "English"
+    "en": "English",
+    "alt-logo": "Logo of the web",
+    "alt-language": "Icon for internationalization",
+    "alt-banner": "Banner image that shows codelines"
 }

@@ -4,5 +4,8 @@
     "about": "Sobre mí",
     "contact": "Contacto",
     "es": "Español",
-    "en": "Inglés"
+    "en": "Inglés",
+    "alt-logo": "Logo de la web",
+    "alt-language": "Icono para la internacionalización",
+    "alt-banner": "Imagen de banner que muestra líneas de código"
 }

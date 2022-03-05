@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar';
 
 const Header: FC = () => {
     return (
-        <header>
+        <header className="sticky top-0 z-50">
             <Navbar />
         </header>
     )

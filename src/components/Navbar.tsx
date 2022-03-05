@@ -1,10 +1,10 @@
 import { FC, useState, useRef, MutableRefObject } from 'react';
 import { useTranslation } from 'next-i18next';
+import { NextRouter, useRouter } from 'next/router';
 import Link from 'next/link'
 import Image from 'next/image';
 import logo from '../assets/logo.svg';
 import language from '../assets/language.png';
-import { NextRouter, Router, useRouter } from 'next/router';
 
 const Navbar: FC = () => {
     let { locale, locales }: { locale?: string, locales?: string[] } = useRouter();
@@ -23,7 +23,6 @@ const Navbar: FC = () => {
     const menuRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
     const closeOpenMenus: any = (e: MouseEvent) => {
         if (menuRef.current && (toggleMenu || toggleMenuLanguage) && !menuRef.current.contains(e.target as Node)) {
-            console.log("if");
             setToggleMenu(false);
             setToggleMenuLanguage(false);
         }
@@ -32,12 +31,12 @@ const Navbar: FC = () => {
         document.addEventListener('click', closeOpenMenus);
     }
     return (
-        <nav className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5">
+        <nav id="navbar" className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5 relative">
             <div ref={menuRef}
                 className="container flex flex-wrap justify-between items-center mx-auto">
                 <a href="#" className="flex items-center">
                     <span className="flex items-center mr-3 h-6 sm:h-10">
-                        <Image src={logo} alt="Logo of the web" />
+                        <Image src={logo} alt={t("alt-logo")} />
                     </span>
                     <span className="self-center text-xl font-recursive whitespace-nowrap text-slate-200 font-normal">Jonathan Rodríguez</span>
                 </a>
@@ -50,7 +49,7 @@ const Navbar: FC = () => {
                         data-dropdown-toggle="dropdown"
                         onClick={() => setToggleMenuLanguage(!toggleMenuLanguage)}>
                         <span className="sr-only">Open language menu</span>
-                        <Image src={language} alt="Logo of the web" />
+                        <Image src={language} alt={t("alt-language")} />
                     </button>
                     <div
                         className={`${!toggleMenuLanguage ? 'hidden' : ''} absolute top-6 right-0 left-0 w-fit z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
@@ -103,10 +102,10 @@ const Navbar: FC = () => {
                     </button>
                 </div>
                 <div
-                    className={`${!toggleMenu ? 'hidden' : ''} justify-between items-center w-full md:flex md:w-auto md:order-1`}
+                    className={`${!toggleMenu ? 'hidden' : ''} justify-between items-center w-full md:flex md:w-auto md:order-1 md:relative absolute inset-x-0 md:top-0 top-10`}
                     id="mobile-menu-2"
                 >
-                    <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter">
+                    <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2">
                         {sections.map((section, index) => (
                             <li key={index}>
                                 <Link href={`#${section}`} locale={locale}>
