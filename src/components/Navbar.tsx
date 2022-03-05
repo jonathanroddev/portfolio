@@ -30,6 +30,7 @@ const Navbar: FC = () => {
     if (typeof window !== "undefined") {
         document.addEventListener('click', closeOpenMenus);
     }
+
     return (
         <nav id="navbar" className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5 relative">
             <div ref={menuRef}

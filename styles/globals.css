@@ -22,9 +22,88 @@ a {
 }
 
 .filter-custom {
-  filter: blur(2px) saturate(.75);
+  filter: blur(3px) contrast(1.1);
 }
 
 .h-screen-minus-navbar {
   height: calc(100vh - 60px);
+}
+
+.typewriter {
+  overflow: hidden;
+  border-right: .15em solid rgb(226 232 240);
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .15em;
+  animation:
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 50% }
+}
+
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(226 232 240) }
+}
+
+.typewriter-line-1,
+.typewriter-line-2 {
+  white-space: nowrap;
+  overflow: hidden;
+  letter-spacing: .15em;
+}
+
+.typewriter-line-1 {
+  border-right: .15em solid transparent;
+  animation: animated-text__1 3s steps(30, end) 1s 1 normal both,
+    animated-cursor__1 900ms steps(30, end) 3.5;
+}
+
+.typewriter-line-2 {
+  border-right: .15em solid transparent;
+  animation: animated-text__2 3s steps(30, end) 1s 1 normal both,
+    animated-cursor__2 900ms steps(30, end) infinite;
+  -webkit-animation-delay: 3.15s;
+  animation-delay: 3.15s;
+}
+
+@keyframes animated-cursor__1 {
+  from {
+    border-right-color: transparent;
+  }
+  to {
+    border-right-color: rgb(226 232 240);
+  }
+}
+
+@keyframes animated-cursor__2 {
+  from {
+    border-right-color: transparent;
+  }
+  to {
+    border-right-color: rgb(226 232 240);
+  }
+}
+
+@keyframes animated-text__1 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes animated-text__2 {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
 }
