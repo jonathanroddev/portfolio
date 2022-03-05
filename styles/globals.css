@@ -20,3 +20,11 @@ a {
 * {
   box-sizing: border-box;
 }
+
+.filter-custom {
+  filter: blur(2px) saturate(.75);
+}
+
+.h-screen-minus-navbar {
+  height: calc(100vh - 60px);
+}
