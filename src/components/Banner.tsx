@@ -1,6 +1,5 @@
 import { FC, useState } from 'react';
 import { useTranslation } from 'next-i18next';
-import { useSpring, animated, config } from 'react-spring';
 import Image from 'next/image';
 import banner from '../assets/banner.png';
 
@@ -19,7 +18,7 @@ const Banner: FC = () => {
             {t("full-stack-developer")}
           </h2>
           <h1
-            className="hidden md:block w-auto typewriter my3- font-recursive text-6xl text-slate-200 font-normal text-center overflow-hidden pb-2">
+            className="hidden md:block w-auto typewriter my-3 font-recursive text-6xl text-slate-200 font-normal text-center overflow-hidden pb-2">
             Jonathan Rodríguez
           </h1>
           <h1
