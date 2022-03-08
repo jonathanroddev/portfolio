@@ -1,4 +1,4 @@
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import banner from '../assets/banner.png';

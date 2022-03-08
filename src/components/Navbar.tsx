@@ -11,7 +11,7 @@ const Navbar: FC = () => {
     const router: NextRouter = useRouter();
     const { pathname, asPath }: { pathname: string, asPath: string } = useRouter();
     locale = locale || 'es';
-    const sections: string[] = ['technologies', 'courses', 'about', 'contact'];
+    const sections: string[] = ['about', 'technologies', 'courses', 'contact'];
     const { t }: { t: Function } = useTranslation('common');
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
     const [toggleMenuLanguage, setToggleMenuLanguage] = useState<boolean>(false);
