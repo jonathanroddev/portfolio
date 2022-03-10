@@ -1,25 +1,32 @@
-import { FC } from 'react';
+import { FC, MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import profile from '../assets/profile.jpg';
 
 const About: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
-
+    const hiddenRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
+    const [isVisible, setIsVisible] = useState<boolean>(false);
+    const scrollHandler = () => {
+        setIsVisible(!!hiddenRef?.current?.offsetTop && window.pageYOffset + window.innerHeight >= hiddenRef.current.offsetTop);
+    }
+    useEffect(() => {
+        window.addEventListener('scroll', scrollHandler);
+        return () => window.removeEventListener('scroll', scrollHandler);
+    }, []);
     return (
         <section id="about" className="bg-slate-300 w-full">
             <div className="container flex flex-wrap mx-auto md:pt-40 pt-16">
                 <div className="w-full md:w-1/2 flex justify-center">
-                    <div className="flex items-center">
-                        <Image src={profile} alt={t("alt-author")} className="object-fit" />
+                    <div className="flex items-center" ref={hiddenRef}>
+                        <Image src={profile} alt={t("alt-author")} className={`object-fit skew-y-12 ${isVisible ? 'slide-in' : 'slide-out'}`} />
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 flex justify-center px-4 md:px-0">
                     <article>
-                        <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-6">¡Hola mundo!</h3>
+                        <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-6 motion-safe:animate-bounce">{t('about-title')}</h3>
                         <p className="font-inter text-2xl text-slate-700 font-extralight text-justify indent-14">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum
+                            {t('about-text', { yearsOfExperience: new Date().getFullYear() - new Date('2020-10-01').getFullYear() })}
                         </p>
                     </article>
                 </div>

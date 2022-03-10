@@ -12,5 +12,7 @@
     "imagine-it": "Imagine it",
     "design-it": "Design it",
     "create-it": "Create it",
-    "alt-author": "Jonathan Rodríguez's photo, website's author"
+    "alt-author": "Jonathan Rodríguez's photo, website's author",
+    "about-title": "A little about me.",
+    "about-text": "Hello, world! This is Jonathan Rodríguez, Full Stack developer with more than {{yearsOfExperience}} years of experience in the sector."
 }
