@@ -14,6 +14,9 @@
     "create-it": "Créalo",
     "alt-author": "Foto de Jonathan Rodríguez, autor de la página",
     "about-title": "Un poquito sobre mí.",
-    "about-text-p1": "¡Hola, mundo! Soy Jonathan Rodríguez, desarrollador Full Stack. Con más de {{yearsOfExperience}} años de experiencia en el sector y habiendo trabajado en campos como el marketing digital o estudiando el modelo de negocios empresarial, me mueve lo que a cualquier entusiasta tecnológico: aprender cada día para poder sacar mi mejor versión.",
-    "about-text-p2": "Si quieres conocer un poco más acerca de mis aptitudes y conocimientos, te invito a que sigas haciendo scroll. ¡No dudes en ponerte en contacto si tienes alguna pregunta!"
+    "about-text-p1": "¡Hola, mundo! Soy Jonathan Rodríguez, desarrollador Full Stack. Con más de {{yearsOfExperience}} años de experiencia como desarrollador web, he trabajado en campos como el marketing digital o estudiando el modelo de negocios empresarial y me mueve lo que a cualquier entusiasta tecnológico: aprender cada día para poder sacar mi mejor versión.",
+    "about-text-p2": "Si quieres conocer un poco más acerca de mis aptitudes y conocimientos, te invito a que sigas haciendo scroll. ¡No dudes en ponerte en contacto si tienes alguna pregunta!",
+    "technologies-title": "Tecnologías",
+    "courses-title": "Cursos",
+    "contact-title": "Contacto"
 }

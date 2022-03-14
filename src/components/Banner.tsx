@@ -14,7 +14,7 @@ const Banner: FC = () => {
       <div className="w-full h-full absolute inset-0">
         <div className="container h-full flex flex-wrap flex-col justify-center items-center mx-auto">
           <h2
-            className="w-full md:mt-0 md:mb-3 font-recursive md:text-6xl text-5xl text-slate-200 font-light text-center">
+            className="w-full md:mt-0 md:mb-3 mb-16 font-recursive md:text-6xl text-5xl text-slate-200 font-light text-center">
             {t("full-stack-developer")}
           </h2>
           <h1

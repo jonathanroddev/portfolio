@@ -53,7 +53,7 @@ const Navbar: FC = () => {
                         <Image src={language} alt={t("alt-language")} />
                     </button>
                     <div
-                        className={`${!toggleMenuLanguage ? 'opacity-0' : 'opacity-100'} transition duration-200 ease-in-out absolute top-7 right-6 w-fit z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
+                        className={`${!toggleMenuLanguage ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto transition duration-200 ease-in-out absolute top-7 right-6 w-fit z-50 text-base list-none bg-white rounded divide-y divide-gray-100 shadow dark:bg-gray-700 dark:divide-gray-600`}
                         id="dropdown"
                     >
                         <ul className="py-1" aria-labelledby="dropdown">
@@ -103,7 +103,7 @@ const Navbar: FC = () => {
                     </button>
                 </div>
                 <div
-                    className={`${!toggleMenu ? 'opacity-0' : 'opacity-100'} md:opacity-100 transition duration-300 ease-in-out justify-between items-center w-full md:flex md:w-auto md:order-1 md:relative absolute inset-x-0 md:top-0 top-10`}
+                    className={`${!toggleMenu ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto md:opacity-100 transition duration-300 ease-in-out justify-between items-center w-full md:flex md:w-auto md:order-1 md:relative absolute inset-x-0 md:top-0 top-10`}
                     id="mobile-menu-2"
                 >
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2">

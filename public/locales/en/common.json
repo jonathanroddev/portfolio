@@ -14,6 +14,9 @@
     "create-it": "Create it",
     "alt-author": "Jonathan Rodríguez's photo, website's author",
     "about-title": "A little about me.",
-    "about-text-p1": "Hello, world! This is Jonathan Rodríguez, Full Stack developer. With more than {{yearsOfExperience}} years of experience in the sector and having worked in fields such as digital marketing or studying the entrepreneurial business model, I am motivated by what any technology enthusiast does: learn every day in order to be my best version.",
-    "about-text-p2": "If you want to know a little more about my skills and knowledge, I invite you to continue scrolling. Don't hesitate to get in touch if you have any questions!"
+    "about-text-p1": "Hello, world! This is Jonathan Rodríguez, Full Stack developer. With more than {{yearsOfExperience}} years of experience as web developer, I have worked in fields such as digital marketing or studying the entrepreneurial business model and I am motivated by what any technology enthusiast does: learn every day in order to be my best version.",
+    "about-text-p2": "If you want to know a little more about my skills and knowledge, I invite you to continue scrolling. Don't hesitate to get in touch if you have any questions!",
+    "technologies-title": "Technologies",
+    "courses-title": "Courses",
+    "contact-title": "Contact"
 }
