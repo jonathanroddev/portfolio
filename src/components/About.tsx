@@ -7,6 +7,7 @@ const About: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
     const hiddenRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
     const [isVisible, setIsVisible] = useState<boolean>(false);
+    const yearsOfExperience = new Date().getFullYear() - new Date('2020-10-01').getFullYear();
     const scrollHandler = () => {
         setIsVisible(!!hiddenRef?.current?.offsetTop && window.pageYOffset + window.innerHeight >= hiddenRef.current.offsetTop);
     }
@@ -19,14 +20,17 @@ const About: FC = () => {
             <div className="container flex flex-wrap mx-auto md:pt-40 pt-16">
                 <div className="w-full md:w-1/2 flex justify-center">
                     <div className="flex items-center" ref={hiddenRef}>
-                        <Image src={profile} alt={t("alt-author")} className={`object-fit skew-y-12 ${isVisible ? 'slide-in' : 'slide-out'}`} />
+                        <Image src={profile} alt={t("alt-author")} className={`object-fit brightness-90 ${isVisible ? 'slide-in' : 'slide-out'}`} />
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 flex justify-center px-4 md:px-0">
                     <article>
                         <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-6 motion-safe:animate-bounce">{t('about-title')}</h3>
                         <p className="font-inter text-2xl text-slate-700 font-extralight text-justify indent-14">
-                            {t('about-text', { yearsOfExperience: new Date().getFullYear() - new Date('2020-10-01').getFullYear() })}
+                            {t('about-text-p1', { yearsOfExperience })}
+                        </p>
+                        <p className="font-inter text-2xl text-slate-700 font-extralight text-justify indent-14 md:mt-0 mt-2">
+                            {t('about-text-p2')}
                         </p>
                     </article>
                 </div>
