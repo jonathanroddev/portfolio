@@ -1,7 +1,7 @@
 import { FC, MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import profile from '../assets/profile.jpg';
+import profile from '../assets/about/profile.jpg';
 
 const About: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
@@ -26,10 +26,10 @@ const About: FC = () => {
                 <div className="w-full md:w-2/3 flex justify-center px-4 md:px-0">
                     <article>
                         <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-10 motion-safe:animate-bounce">{t('about-title')}</h3>
-                        <p className="font-inter text-2xl text-slate-700 font-extralight text-justify indent-14">
+                        <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14">
                             {t('about-text-p1', { yearsOfExperience })}
                         </p>
-                        <p className="font-inter text-2xl text-slate-700 font-extralight text-justify indent-14 md:mt-0 mt-2">
+                        <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 md:mt-0 mt-2">
                             {t('about-text-p2')}
                         </p>
                     </article>

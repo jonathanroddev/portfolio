@@ -4,7 +4,7 @@ import { NextRouter, useRouter } from 'next/router';
 import Link from 'next/link'
 import Image from 'next/image';
 import logo from '../assets/logo.svg';
-import language from '../assets/language.png';
+import language from '../assets/navbar/language.png';
 
 const Navbar: FC = () => {
     let { locale, locales }: { locale?: string, locales?: string[] } = useRouter();

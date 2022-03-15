@@ -7,7 +7,7 @@ const Contact: FC = () => {
     return (
         <section id="contact" className="bg-slate-200 w-full">
             <div className="container flex flex-wrap justify-center items-center mx-auto md:pt-22 pt-12">
-                <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-6">{t('contact-title')}</h3>
+                <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 md:mt-0 mt-6">{t('contact-title')}</h3>
             </div>
             <div className="relative md:h-28 h-24">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="absolute bottom-0 left-0 h-full w-full">
