@@ -1,7 +1,7 @@
 import { FC, MutableRefObject, useEffect, useRef, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
-import profile from '../assets/about/profile.jpg';
+import profile from '../../assets/about/profile.jpg';
 
 const About: FC = () => {
     const { t }: { t: Function } = useTranslation('common');

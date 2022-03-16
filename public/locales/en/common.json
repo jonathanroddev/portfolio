@@ -18,5 +18,13 @@
     "about-text-p2": "If you want to know a little more about my skills and knowledge, I invite you to continue scrolling. Don't hesitate to get in touch if you have any questions!",
     "technologies-title": "Technologies",
     "courses-title": "Courses",
-    "contact-title": "Contact"
+    "contact-title": "Contact",
+    "front-end": "Front-end",
+    "back-end": "Back-end",
+    "database": "Database",
+    "others": "Others",
+    "alt-front-end": "Vector that shows front-end technology",
+    "alt-back-end": "Vector that shows back-end technology",
+    "alt-database": "Vector that shows database",
+    "alt-others": "Vector that shows others technology"
 }

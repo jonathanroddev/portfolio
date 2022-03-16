@@ -18,5 +18,13 @@
     "about-text-p2": "Si quieres conocer un poco más acerca de mis aptitudes y conocimientos, te invito a que sigas haciendo scroll. ¡No dudes en ponerte en contacto si tienes alguna pregunta!",
     "technologies-title": "Tecnologías",
     "courses-title": "Cursos",
-    "contact-title": "Contacto"
+    "contact-title": "Contacto",
+    "front-end": "Front-end",
+    "back-end": "Back-end",
+    "database": "Base de datos",
+    "others": "Otras",
+    "alt-front-end": "Vector que representa tecnología front-end",
+    "alt-back-end": "Vector que representa tecnología back-end",
+    "alt-database": "Vector que representa base de datos",
+    "alt-others": "Vector que representa otras tecnologías"
 }
