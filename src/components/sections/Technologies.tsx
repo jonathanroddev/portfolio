@@ -2,18 +2,41 @@ import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
 import { Develop, Technology } from '../../models';
 import TechnologyModule from '../DevelopModule';
-import frontend from '../../assets/technologies/frontend.svg';
-import backend from '../../assets/technologies/backend.svg';
-import database from '../../assets/technologies/database.svg';
-import others from '../../assets/technologies/others.svg';
+import {
+    frontend, backend, database, others,
+    reactLogo, reduxLogo, tailwindLogo, typescriptLogo,
+    springbootLogo, phpLogo, nodeLogo,
+    postgresLogo, mysqlLogo,
+    elasticSearchLogo, casLogo, dockerLogo
+} from '../../assets/technologies';
 
 const Technologies: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
+    const frontendList: Technology[] = [
+        new Technology("React", reactLogo, "alt-react"),
+        new Technology("Redux", reduxLogo, "alt-redux"),
+        new Technology("Tailwind CSS", tailwindLogo, "alt-tailwind"),
+        new Technology("Typescript", typescriptLogo, "alt-typescript")
+    ];
+    const backendList: Technology[] = [
+        new Technology("Spring Boot", springbootLogo, "alt-springboot"),
+        new Technology("PHP", phpLogo, "alt-php"),
+        new Technology("Node", nodeLogo, "alt-node")
+    ];
+    const databaseList: Technology[] = [
+        new Technology("Postgres", postgresLogo, "alt-postgres"),
+        new Technology("Mysql", mysqlLogo, "alt-mysql")
+    ];
+    const othersList: Technology[] = [
+        new Technology("ElasticSearch", elasticSearchLogo, "alt-elastic"),
+        new Technology("CAS", casLogo, "alt-cas"),
+        new Technology("Docker", dockerLogo, "alt-docker")
+    ];
     const developList: Develop[] = [
-        new Develop("front-end", frontend, "alt-front-end"),
-        new Develop("back-end", backend, "alt-back-end"),
-        new Develop("database", database, "alt-database"),
-        new Develop("others", others, "alt-others")
+        new Develop("front-end", frontend, "alt-front-end", frontendList),
+        new Develop("back-end", backend, "alt-back-end", backendList),
+        new Develop("database", database, "alt-database", databaseList),
+        new Develop("others", others, "alt-others", othersList)
     ];
     return (
         <section id="technologies" className="bg-slate-200 w-full">

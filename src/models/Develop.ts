@@ -5,10 +5,10 @@ export default class Develop {
         private title: string,
         private bgImage: any,
         private altBg: string,
-        // private technologyList: Technology[]
+        private technologyList: Technology[]
     ) { };
     get getTitle() { return this.title; }
     get getBgImage(): any { return this.bgImage; }
     get getAltBg() { return this.altBg; }
-    // get getTechnologyList(): Technology[] { return this.technologyList; }
+    get getTechnologyList(): Technology[] { return this.technologyList; }
 }
