@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
-import TechnologyModule from '../TechnologyModule';
+import { Develop, Technology } from '../../models';
+import TechnologyModule from '../DevelopModule';
 import frontend from '../../assets/technologies/frontend.svg';
 import backend from '../../assets/technologies/backend.svg';
 import database from '../../assets/technologies/database.svg';
@@ -8,36 +9,19 @@ import others from '../../assets/technologies/others.svg';
 
 const Technologies: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
-    //TODO: create type for Technology
-    const technologyList = [
-        {
-            title: "front-end",
-            bgImage: frontend,
-            altBg: "alt-front-end"
-        },
-        {
-            title: "back-end",
-            bgImage: backend,
-            altBg: "alt-back-end"
-        },
-        {
-            title: "database",
-            bgImage: database,
-            altBg: "alt-database"
-        },
-        {
-            title: "others",
-            bgImage: others,
-            altBg: "alt-others"
-        }
+    const developList: Develop[] = [
+        new Develop("front-end", frontend, "alt-front-end"),
+        new Develop("back-end", backend, "alt-back-end"),
+        new Develop("database", database, "alt-database"),
+        new Develop("others", others, "alt-others")
     ];
     return (
         <section id="technologies" className="bg-slate-200 w-full">
             <div className="container flex flex-wrap justify-center items-center mx-auto">
                 <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 md:mt-0 mt-6">{t('technologies-title')}</h3>
                 <div className="w-full flex flex-wrap justify-between items-stretch">
-                    {technologyList.map((technology, index) => (
-                        <TechnologyModule key={index} technology={technology} />
+                    {developList.map((develop, index) => (
+                        <TechnologyModule key={index} develop={develop} />
                     ))}
                 </div>
             </div>
