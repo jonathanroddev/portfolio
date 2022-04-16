@@ -1,7 +1,7 @@
-export { default as frontend } from './frontend.png';
-export { default as backend } from './backend.png';
-export { default as database } from './database.png';
-export { default as others } from './others.png';
+export { default as frontend } from '../../../public/images/frontend.png';
+export { default as backend } from '../../../public/images/backend.png';
+export { default as database } from '../../../public/images/database.png';
+export { default as others } from '../../../public/images/others.png';
 export { default as reactLogo } from './react-logo.png';
 export { default as reduxLogo } from './redux-logo.png';
 export { default as tailwindLogo } from './tailwind-logo.png';
