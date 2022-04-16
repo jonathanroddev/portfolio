@@ -192,17 +192,17 @@ a {
 }
 
 .bgImg-front-end::before {
-  background-image: url("../src/assets/technologies/frontend.svg");
+  background-image: url("../src/assets/technologies/frontend.png");
 }
 
 .bgImg-back-end::before {
-  background-image: url("../src/assets/technologies/backend.svg");
+  background-image: url("../src/assets/technologies/backend.png");
 }
 
 .bgImg-database::before {
-  background-image: url("../src/assets/technologies/database.svg");
+  background-image: url("../src/assets/technologies/database.png");
 }
 
 .bgImg-others::before {
-  background-image: url("../src/assets/technologies/others.svg");
+  background-image: url("../src/assets/technologies/others.png");
 }
