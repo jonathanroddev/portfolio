@@ -1,9 +1,10 @@
 import { FC } from 'react';
 import { useTranslation } from 'next-i18next';
+import { Course } from '../../models';
 
 const Courses: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
-
+    const courseList: Course[] = [];
     return (
         <section id="courses" className="bg-slate-300 w-full">
             <div className="container flex flex-wrap justify-center items-center mx-auto md:pb-22 pb-16">
