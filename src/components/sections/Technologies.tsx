@@ -21,7 +21,7 @@ const Technologies: FC = () => {
     const backendList: Technology[] = [
         new Technology("Spring Boot", springbootLogo, "alt-springboot"),
         new Technology("PHP", phpLogo, "alt-php"),
-        new Technology("Node", nodeLogo, "alt-node")
+        new Technology("Node JS", nodeLogo, "alt-node")
     ];
     const databaseList: Technology[] = [
         new Technology("Postgres", postgresLogo, "alt-postgres"),
