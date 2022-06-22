@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useTranslation, Trans } from 'next-i18next';
 import { Develop, Technology } from '../../models';
 import TechnologyModule from '../DevelopModule';
 import {
@@ -45,7 +45,7 @@ const Technologies: FC = () => {
                 <article className="px-2 sm:px-4">
                     <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 md:mt-0 mt-6">{t('technologies-title')}</h3>
                     <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 md:mt-0 mt-2 sm:w-9/12 mx-auto">
-                        {t('technologies-text')}
+                        <Trans>{t('technologies-text')}</Trans>
                     </p>
                 </article>
                 <div className="md:w-9/12 flex flex-wrap justify-between items-stretch px-2 sm:px-4">
