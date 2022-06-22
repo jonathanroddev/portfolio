@@ -42,7 +42,7 @@ const Technologies: FC = () => {
         <section id="technologies" className="bg-slate-200 w-full">
             <div className="container flex flex-wrap justify-center items-center mx-auto">
                 <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 md:mt-0 mt-6">{t('technologies-title')}</h3>
-                <div className="w-full flex flex-wrap justify-between items-stretch">
+                <div className="w-full flex flex-wrap justify-between items-stretch px-2 sm:px-4">
                     {developList.map((develop, index) => (
                         <TechnologyModule key={index} develop={develop} />
                     ))}
