@@ -12,5 +12,6 @@ export { default as nodeLogo } from './node-logo.png';
 export { default as postgresLogo } from './postgres-logo.png';
 export { default as mysqlLogo } from './mysql-logo.png';
 export { default as elasticSearchLogo } from './elasticsearch-logo.png';
-export { default as casLogo } from './cas-logo.png';
 export { default as dockerLogo } from './docker-logo.png';
+export { default as keycloakLogo } from './keycloak-logo.png';
+export { default as casLogo } from './cas-logo.png';

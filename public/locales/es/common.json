@@ -26,5 +26,6 @@
     "alt-front-end": "Vector que representa tecnología front-end",
     "alt-back-end": "Vector que representa tecnología back-end",
     "alt-database": "Vector que representa base de datos",
-    "alt-others": "Vector que representa otras tecnologías"
+    "alt-others": "Vector que representa otras tecnologías",
+    "technologies-text": "En el mundo del software, cada problema tiene una solución y muchas de ellas pasan por aprender a usar una o más determinadas tecnologías. Estas son algunas de las que yo he ido usando y aprendiendo a lo largo de mi carrera."
 }

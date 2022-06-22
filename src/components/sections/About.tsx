@@ -24,7 +24,7 @@ const About: FC = () => {
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 flex justify-center px-4 md:px-0">
-                    <article>
+                    <article className="sm:w-9/12">
                         <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 md:mt-0 mt-10 motion-safe:animate-bounce">{t('about-title')}</h3>
                         <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14">
                             {t('about-text-p1', { yearsOfExperience })}

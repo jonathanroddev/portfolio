@@ -34,7 +34,7 @@ const Navbar: FC = () => {
     return (
         <nav id="navbar" className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5 relative">
             <div ref={menuRef}
-                className="container flex flex-wrap justify-between items-center mx-auto">
+                className="container flex flex-wrap justify-between items-center mx-auto lg:w-9/12">
                 <a href="#" className="flex items-center">
                     <span className="flex items-center mr-3 h-6 sm:h-10">
                         <Image src={logo} alt={t("alt-logo")} />
