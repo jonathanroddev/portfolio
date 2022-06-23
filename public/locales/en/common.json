@@ -27,5 +27,14 @@
     "alt-back-end": "Vector that shows back-end technology",
     "alt-database": "Vector that shows database",
     "alt-others": "Vector that shows others technology",
-    "technologies-text": "In the world of <strong>software</strong>, every problem has a solution and many of them involve learning to use one or more certain technologies. These are some that I have been using and learning throughout my career."
+    "technologies-text": "In the world of <strong>software</strong>, every problem has a solution and many of them involve learning to use one or more certain technologies. These are some that I have been using and learning throughout my career.",
+    "course-title-docker": "Docker and cloud application deployment",
+    "course-title-big-data": "Introduction to Big Data",
+    "course-title-react-patterns": "Advanced patterns in React",
+    "course-title-typescript": "Typescript: Complete guide and manual",
+    "alt-course-docker": "",
+    "alt-course-big-data": "",
+    "alt-course-react-patterns": "",
+    "alt-course-typescript": "",
+    "courses-text": "Although it is true that I am a firm defender that <strong>nothing consolidates knowledge as much as putting it into practice</strong>; courses are often the best way to approach the <i>unknown</i>. Among the last ones I have done, are:"
 }
