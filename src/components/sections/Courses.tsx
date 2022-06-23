@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useTranslation, Trans } from 'next-i18next';
 import { Course } from '../../models';
 import { dockerLogo, bigDataLogo, reactLogo, typescriptLogo } from '../../assets/courses';
+import CourseModule from '../CourseModule';
 
 const Courses: FC = () => {
     const { t }: { t: Function } = useTranslation('common');
@@ -20,9 +21,9 @@ const Courses: FC = () => {
                         <Trans>{t('courses-text')}</Trans>
                     </p>
                 </article>
-                <div className="md:w-9/12 flex flex-wrap justify-between items-stretch px-2 sm:px-4 sm:mt-8 mt-10 border">
+                <div className="flex flex-col justify-between items-stretch px-2 sm:px-4 sm:mt-8 mt-10">
                     {courseList.map((course, index) => (
-                        <div key={index}></div>
+                        <CourseModule key={index} course={course} index={index}></CourseModule>
                     ))}
                 </div>
             </div>

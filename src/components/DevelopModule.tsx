@@ -6,7 +6,7 @@ import { Develop } from '../models';
 const DevelopModule: FC<{ develop: Develop }> = ({ develop }) => {
     const { t }: { t: Function } = useTranslation('common');
     return (
-        <div className={`md:w-5/12 w-full relative border`}>
+        <div className="md:w-5/12 w-full relative border">
             <div className="opacity-30 absolute p-16">
                 <Image src={develop.getBgImage} alt={t(develop.getAltBg)} />
             </div>
