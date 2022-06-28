@@ -36,5 +36,11 @@
     "alt-course-big-data": "",
     "alt-course-react-patterns": "",
     "alt-course-typescript": "",
-    "courses-text": "Although it is true that I am a firm defender that <strong>nothing consolidates knowledge as much as putting it into practice</strong>; courses are often the best way to approach the <i>unknown</i>. Among the last ones I have done, are:"
+    "courses-text": "Although it is true that I am a firm defender that <strong>nothing consolidates knowledge as much as putting it into practice</strong>; courses are often the best way to approach the <i>unknown</i>. Among the last ones I have done, are:",
+    "contact-text": "If you wish, you can <strong>contact</strong> me by filling out the following form:",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send-!": "Send!"
 }

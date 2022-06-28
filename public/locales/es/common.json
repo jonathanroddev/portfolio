@@ -36,5 +36,11 @@
     "alt-course-big-data": "",
     "alt-course-react-patterns": "",
     "alt-course-typescript": "",
-    "courses-text": "Si bien es cierto que soy firme defensor de que <strong>nada asienta tanto los conocimientos como ponerlos en práctica</strong>; los cursos son, muchas veces, la mejor manera de aproximarse a lo <i>desconocido</i>. Entre los últimos que he realizado, se encuentran:"
+    "courses-text": "Si bien es cierto que soy firme defensor de que <strong>nada asienta tanto los conocimientos como ponerlos en práctica</strong>; los cursos son, muchas veces, la mejor manera de aproximarse a lo <i>desconocido</i>. Entre los últimos que he realizado, se encuentran:",
+    "contact-text": "Si lo deseas, puedes ponerte en <strong>contacto</strong> conmigo rellenando el siguiente formulario:",
+    "name": "Nombre",
+    "email": "Email",
+    "subject": "Asunto",
+    "message": "Mensaje",
+    "send-!": "¡Enviar!"
 }
