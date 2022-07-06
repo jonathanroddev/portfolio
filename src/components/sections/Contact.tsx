@@ -1,35 +1,33 @@
 import { FC, FormEvent, useState } from "react";
 import { useTranslation, Trans } from "next-i18next";
+import ContactForm from "../ContactForm";
+import { Email } from "../../models/Email";
 
 const Contact: FC = () => {
     const { t }: { t: Function } = useTranslation("common");
-    const [name, setName] = useState<string>("");
-    const [email, setEmail] = useState<string>("");
-    const [subject, setSubject] = useState<string>("");
-    const [message, setMessage] = useState<string>("");
+    const [email, setEmail] = useState<Email | null>(null);
+    const [isSent, setIsSent] = useState<boolean>(true);
+
+    const setEmailProperty = (property: any, value: string) => {
+        const emailToSent: Email = JSON.parse(JSON.stringify(email)) || {};
+        emailToSent[property as keyof Email] = value;
+        setEmail(emailToSent);
+    };
 
     const handleSubmit = (e: FormEvent<HTMLElement>) => {
         e.preventDefault()
-        const data = {
-            name,
-            email,
-            subject,
-            message
-        };
-        console.log(data);
+        console.log(email);
         fetch("/api/contact", {
             method: "POST",
             headers: {
                 "Accept": "application/json, text/plain, */*",
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(data)
+            body: JSON.stringify(email)
         }).then((res) => {
             if (res.status === 200) {
-                setName("");
-                setEmail("");
-                setSubject("");
-                setMessage("");
+                setEmail(null);
+                setIsSent(true);
             }
         })
     };
@@ -45,54 +43,12 @@ const Contact: FC = () => {
                         </p>
                     </article>
                     <div className="md:w-1/2 w-full px-2">
-                        <form onSubmit={e => handleSubmit(e)} className="mx-auto w-full font-bold flex flex-col justify-between items-stretch p-2 sm:p-4 mt-4 bg-slate-300 rounded-xl focus:outline-none border border-sky-600 font-recursive my-2 text-slate-700">
-                            <label>
-                                {t("name")}*
-                                <input
-                                    type="text"
-                                    className="w-full p-1 rounded focus:outline-none border border-sky-600 font-normal"
-                                    placeholder={t("name")}
-                                    onChange={e => setName(e.target.value)}
-                                    required
-                                    minLength={2}
-                                />
-                            </label>
-                            <label className="my-2">
-                                {t("email")}*
-                                <input
-                                    type="email"
-                                    className="w-full p-1 rounded focus:outline-none border border-sky-600 font-normal"
-                                    placeholder={t("email")}
-                                    onChange={e => setEmail(e.target.value)}
-                                    required
-                                />
-                            </label>
-                            <label>
-                                {t("subject")}
-                                <input
-                                    type="text"
-                                    className="w-full p-1 rounded focus:outline-none border border-sky-600 font-normal"
-                                    placeholder={t("subject")}
-                                    onChange={e => setSubject(e.target.value)}
-                                    minLength={5}
-                                />
-                            </label>
-                            <label className="my-2">
-                                {t("message")}*
-                                <textarea
-                                    className="w-full p-1 rounded focus:outline-none border border-sky-600 resize-none h-32 font-normal"
-                                    placeholder={t("message")}
-                                    onChange={e => setMessage(e.target.value)}
-                                    required
-                                    minLength={20}
-                                />
-                            </label>
-                            <input
-                                type="submit"
-                                value={t("send-!")}
-                                className="w-7/12 md:w-1/3 ml-auto border rounded border-sky-600 bg-sky-500 p-1 hover:bg-sky-600 text-slate-900 cursor-pointer"
-                            />
-                        </form>
+                        {!isSent ? (
+                            <ContactForm handleSubmit={handleSubmit} onChange={setEmailProperty} />
+                        ) : (
+                            <div />
+                        )}
+
                     </div>
                 </div>
             </div>
