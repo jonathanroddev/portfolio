@@ -39,7 +39,7 @@ const Navbar: FC = () => {
                     <span className="flex items-center mr-3 h-6 sm:h-10">
                         <Image src={logo} alt={t("alt-logo")} />
                     </span>
-                    <span className="self-center text-xl font-recursive whitespace-nowrap text-slate-200 font-normal">Jonathan Rodríguez</span>
+                    <span className="self-center text-lg md:text-xl font-recursive whitespace-nowrap text-slate-200 font-normal">Jonathan Rodríguez</span>
                 </a>
                 <div className="flex items-center md:order-2 relative">
                     <button

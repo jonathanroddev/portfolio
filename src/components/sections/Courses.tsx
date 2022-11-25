@@ -29,7 +29,7 @@ const Courses: FC = () => {
                 </article>
                 <div className="flex flex-col justify-between items-stretch px-2 sm:px-4 sm:mt-8 mt-10">
                     {courseList.map((course, index) => (
-                        <CourseModule key={index} course={course} index={index}></CourseModule>
+                        <CourseModule key={index} course={course}></CourseModule>
                     ))}
                 </div>
             </div>
