@@ -27,11 +27,9 @@ const Contact: FC = () => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify(email)
-        }).then((res) => {
-            if (res.status === 200) {
-                setEmail(null);
-                setIsSent(true);
-            }
+        }).then(() => {
+            setEmail(null);
+            setIsSent(true);
         })
         await delay(2000);
         setIsSending(false);
