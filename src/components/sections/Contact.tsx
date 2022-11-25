@@ -9,8 +9,6 @@ const Contact: FC = () => {
     const [isSent, setIsSent] = useState<boolean>(false);
     const [isSending, setIsSending] = useState<boolean>(false);
 
-    const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
-
     const setEmailProperty = (property: any, value: string) => {
         const emailToSent: Email = JSON.parse(JSON.stringify(email)) || {};
         emailToSent[property as keyof Email] = value;
@@ -28,11 +26,10 @@ const Contact: FC = () => {
             },
             body: JSON.stringify(email)
         }).then(() => {
+            setIsSending(false);
             setEmail(null);
             setIsSent(true);
         })
-        await delay(2000);
-        setIsSending(false);
     };
 
     return (
