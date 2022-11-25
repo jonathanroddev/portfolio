@@ -5,7 +5,7 @@ import TechnologyModule from '../DevelopModule';
 import {
     frontend, backend, database, others,
     reactLogo, reduxLogo, tailwindLogo, typescriptLogo,
-    springbootLogo, phpLogo, nodeLogo,
+    springbootLogo, pythonLogo, phpLogo, nodeLogo,
     postgresLogo, mysqlLogo,
     elasticSearchLogo, dockerLogo, keycloakLogo, casLogo
 } from '../../assets/technologies';
@@ -20,6 +20,7 @@ const Technologies: FC = () => {
     ];
     const backendList: Technology[] = [
         new Technology("Spring Boot", springbootLogo, "alt-springboot"),
+        new Technology("Python", pythonLogo, "alt-python"),
         new Technology("PHP", phpLogo, "alt-php"),
         new Technology("Node JS", nodeLogo, "alt-node")
     ];

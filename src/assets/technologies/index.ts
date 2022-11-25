@@ -7,6 +7,7 @@ export { default as reduxLogo } from './redux-logo.png';
 export { default as tailwindLogo } from './tailwind-logo.png';
 export { default as typescriptLogo } from './typescript-logo.png';
 export { default as springbootLogo } from './springboot-logo.png';
+export { default as pythonLogo } from './python-logo.png';
 export { default as phpLogo } from './php-logo.png';
 export { default as nodeLogo } from './node-logo.png';
 export { default as postgresLogo } from './postgres-logo.png';
