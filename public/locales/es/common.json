@@ -48,5 +48,7 @@
     "email": "Email",
     "subject": "Asunto",
     "message": "Mensaje",
-    "send-!": "¡Enviar!"
+    "send-!": "¡Enviar!",
+    "message-sent": "¡Mensaje enviado!",
+    "contact-you-asap": "Me pondré en contacto contigo lo más pronto posible"
 }

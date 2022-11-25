@@ -6,7 +6,10 @@ import { Email } from "../../models/Email";
 const Contact: FC = () => {
     const { t }: { t: Function } = useTranslation("common");
     const [email, setEmail] = useState<Email | null>(null);
-    const [isSent, setIsSent] = useState<boolean>(true);
+    const [isSent, setIsSent] = useState<boolean>(false);
+    const [isSending, setIsSending] = useState<boolean>(false);
+
+    const delay = (ms: number) => new Promise(res => setTimeout(res, ms));
 
     const setEmailProperty = (property: any, value: string) => {
         const emailToSent: Email = JSON.parse(JSON.stringify(email)) || {};
@@ -14,9 +17,9 @@ const Contact: FC = () => {
         setEmail(emailToSent);
     };
 
-    const handleSubmit = (e: FormEvent<HTMLElement>) => {
-        e.preventDefault()
-        console.log(email);
+    const handleSubmit = async (e: FormEvent<HTMLElement>) => {
+        e.preventDefault();
+        setIsSending(true);
         fetch("/api/contact", {
             method: "POST",
             headers: {
@@ -30,26 +33,38 @@ const Contact: FC = () => {
                 setIsSent(true);
             }
         })
+        await delay(2000);
+        setIsSending(false);
     };
 
     return (
         <section id="contact" className="bg-slate-200 w-full">
-            <div className="container flex flex-col justify-center items-center mx-auto md:pb-22 pb-16">
+            <div className="container flex flex-col justify-center items-center mx-auto md:pb-8 pb-4">
                 <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6">{t("contact-title")}</h3>
                 <div className="flex items-center md:flex-row flex-col">
-                    <article className="md:w-1/2 w-full px-2 sm:px-4">
-                        <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify md:mt-0 mt-2 sm:w-9/12 mx-auto">
-                            <Trans>{t("contact-text")}</Trans>
-                        </p>
-                    </article>
-                    <div className="md:w-1/2 w-full px-2">
-                        {!isSent ? (
-                            <ContactForm handleSubmit={handleSubmit} onChange={setEmailProperty} />
+                    {!isSent ? (
+                        !isSending ? (
+                            <>
+                                <article className="md:w-1/2 w-full px-2 sm:px-4">
+                                    <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify md:mt-0 mt-2 sm:w-9/12 mx-auto">
+                                        <Trans>{t("contact-text")}</Trans>
+                                    </p>
+                                </article>
+                                <div className="md:w-1/2 w-full px-2">
+                                    <ContactForm handleSubmit={handleSubmit} onChange={setEmailProperty} />
+                                </div>
+                            </>
                         ) : (
-                            <div />
-                        )}
-
-                    </div>
+                            <span className="loader"></span>
+                        )
+                    ) : (
+                        <div className="flex items-center flex-col">
+                            <h4 className="font-recursive text-4xl text-sky-600 font-normal text-center mb-4 mt-6 bg-slate-200 inline-block h-fit">{t("message-sent")}</h4>
+                            <p className="font-inter text-2xl text-slate-700 font-light text-justify mt-2">
+                                {t('contact-you-asap')}
+                            </p>
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="relative md:h-28 h-24">

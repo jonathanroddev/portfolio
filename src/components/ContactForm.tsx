@@ -55,7 +55,7 @@ const ContactForm: FC<{ handleSubmit: Function; onChange: Function; }> = ({ hand
             <input
                 type="submit"
                 value={t("send-!")}
-                className="w-7/12 md:w-1/3 ml-auto border rounded border-sky-600 bg-sky-500 p-1 hover:bg-sky-600 text-slate-900 cursor-pointer"
+                className="w-7/12 md:w-1/3 ml-auto border rounded border-sky-600 bg-sky-500 p-1 hover:bg-sky-600 text-sky-100 cursor-pointer"
             />
         </form>
     )
