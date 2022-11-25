@@ -19,8 +19,8 @@ const About: FC = () => {
         <section id="about" className="bg-slate-300 w-full">
             <div className="container flex flex-wrap mx-auto md:pt-32 pt-16 px-2 sm:px-4">
                 <div className="w-full md:w-1/3 flex justify-center">
-                    <div className="flex items-center md:w-5/12 w-7/12" ref={hiddenRef}>
-                        <Image src={profile} alt={t("alt-author")} className={`object-fill brightness-90 ${isVisible ? 'slide-in' : 'slide-out'}`} />
+                    <div className="flex items-center w-7/12" ref={hiddenRef}>
+                        <Image src={profile} alt={t("alt-author")} className={`object-fill ${isVisible ? 'slide-in' : 'slide-out'}`} />
                     </div>
                 </div>
                 <div className="w-full md:w-2/3 flex justify-center px-4 md:px-0">
