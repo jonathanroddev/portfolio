@@ -36,7 +36,7 @@ const Contact: FC = () => {
         <section id="contact" className="bg-slate-200 w-full">
             <div className="container flex flex-col justify-center items-center mx-auto md:pb-8 pb-4">
                 <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6">{t("contact-title")}</h3>
-                <div className="flex items-center md:flex-row flex-col">
+                <div className="flex items-center md:flex-row flex-col px-2">
                     {!isSent ? (
                         !isSending ? (
                             <>
@@ -54,7 +54,7 @@ const Contact: FC = () => {
                         )
                     ) : (
                         <div className="flex items-center flex-col">
-                            <h4 className="font-recursive text-4xl text-sky-600 font-normal text-center mb-4 mt-6 bg-slate-200 inline-block h-fit">{t("message-sent")}</h4>
+                            <h4 className="font-recursive text-2xl text-sky-600 font-bold text-center mb-4 mt-6 bg-slate-200 inline-block h-fit italic">{t("message-sent")}</h4>
                             <p className="font-inter text-2xl text-slate-700 font-light text-justify mt-2">
                                 {t('contact-you-asap')}
                             </p>
