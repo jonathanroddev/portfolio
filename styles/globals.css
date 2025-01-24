@@ -146,7 +146,7 @@ a {
 }
 
 .slide-in {
-  position: absolute;
+  /* position: absolute; */
   transform: translateY(100%);
   -webkit-transform: translateY(100%);
   animation: slide-in 1.5s forwards;
