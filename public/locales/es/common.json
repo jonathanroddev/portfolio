@@ -3,6 +3,7 @@
     "courses": "Cursos",
     "about": "Sobre mí",
     "contact": "Contacto",
+    "projects": "Proyectos",
     "es": "Español",
     "en": "Inglés",
     "alt-logo": "Logo de la web",
@@ -19,6 +20,7 @@
     "technologies-title": "Tecnologías",
     "courses-title": "Cursos",
     "contact-title": "Contacto",
+    "projects-title": "Proyectos",
     "front-end": "Front-end",
     "back-end": "Back-end",
     "database": "Base de datos",
@@ -50,5 +52,6 @@
     "message": "Mensaje",
     "send-!": "¡Enviar!",
     "message-sent": "¡Mensaje enviado!",
-    "contact-you-asap": "Me pondré en contacto contigo lo más pronto posible"
+    "contact-you-asap": "Me pondré en contacto contigo lo más pronto posible",
+    "more-info-soon": "Más información próximamente"
 }

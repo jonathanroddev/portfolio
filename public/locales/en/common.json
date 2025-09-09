@@ -3,6 +3,7 @@
     "courses": "Courses",
     "about": "About",
     "contact": "Contact",
+    "projects": "Projects",
     "es": "Spanish",
     "en": "English",
     "alt-logo": "Logo of the web",
@@ -19,6 +20,7 @@
     "technologies-title": "Technologies",
     "courses-title": "Courses",
     "contact-title": "Contact",
+    "projects-title": "Projects",
     "front-end": "Front-end",
     "back-end": "Back-end",
     "database": "Database",
@@ -50,5 +52,6 @@
     "message": "Message",
     "send-!": "Send!",
     "message-sent": "Message sent!",
-    "contact-you-asap": "I'll contact you as soon as possible"
+    "contact-you-asap": "I'll contact you as soon as possible",
+    "more-info-soon": "More information coming soon"
 }

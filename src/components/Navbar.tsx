@@ -7,11 +7,11 @@ import logo from '../assets/logo.svg';
 import language from '../assets/navbar/language.png';
 
 const Navbar: FC = () => {
-    let { locale, locales }: { locale?: string, locales?: string[] } = useRouter();
+    let { locale, locales }: { locale?: string, locales?: readonly string[] } = useRouter();
     const router: NextRouter = useRouter();
     const { pathname, asPath }: { pathname: string, asPath: string } = useRouter();
     locale = locale || 'es';
-    const sections: string[] = ['about', 'technologies', 'courses', 'contact'];
+    const sections: string[] = ['about', 'technologies', 'courses', 'projects'];
     const { t }: { t: Function } = useTranslation('common');
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
     const [toggleMenuLanguage, setToggleMenuLanguage] = useState<boolean>(false);
