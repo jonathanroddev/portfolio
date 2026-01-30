@@ -23,7 +23,7 @@ const Footer: FC = () => {
   ];
   return (
     <footer className="w-full bg-slate-700 md:pb-4 pb-8">
-      <div className="md:w-9/12 px-2 sm:px-4 mx-auto flex justify-between md:justify-center items-center">
+      <div className="bg-slate-700 md:w-9/12 px-2 sm:px-4 mx-auto flex justify-between md:justify-center items-center">
         {socialMediaList.map((socialMedia, index) => (
           <a
             href={socialMedia.getUrl}
