@@ -30,6 +30,10 @@ a {
   height: calc(100vh - 60px);
 }
 
+.h-inherit {
+  height: inherit;
+}
+
 .typewriter {
   overflow: hidden;
   border-right: .15em solid rgb(226 232 240);

@@ -53,5 +53,8 @@
     "send-!": "Send!",
     "message-sent": "Message sent!",
     "contact-you-asap": "I'll contact you as soon as possible",
-    "more-info-soon": "More information coming soon"
+    "more-info-soon": "More information coming soon",
+    "oniria-desc": "Oniria Backend, the role game",
+    "repository": "Repository",
+    "alfred-desc": "Backend for Alfred MG, the automated building management"
 }

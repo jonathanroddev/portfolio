@@ -18,3 +18,5 @@ export { default as elasticSearchLogo } from './elasticsearch-logo.png';
 export { default as dockerLogo } from './docker-logo.png';
 export { default as keycloakLogo } from './keycloak-logo.png';
 export { default as casLogo } from './cas-logo.png';
+export { default as javaLogo } from './java-logo.png';
+export { default as alfredLogo } from './alfred-logo.png';

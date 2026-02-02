@@ -53,5 +53,8 @@
     "send-!": "¡Enviar!",
     "message-sent": "¡Mensaje enviado!",
     "contact-you-asap": "Me pondré en contacto contigo lo más pronto posible",
-    "more-info-soon": "Más información próximamente"
+    "more-info-soon": "Más información próximamente",
+    "oniria-desc": "Backend de Oniria, el juego de rol",
+    "repository": "Repositorio",
+    "alfred-desc": "Backend de Alfred MG, el gestor automatizado de edificios"
 }

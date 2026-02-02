@@ -11,9 +11,9 @@ const Main: FC = () => {
     <main>
       <Banner />
       <About />
+      <Projects />
       <Technologies />
       <Courses />
-      <Projects />
     </main>
   );
 };

@@ -11,7 +11,7 @@ const Navbar: FC = () => {
     const router: NextRouter = useRouter();
     const { pathname, asPath }: { pathname: string, asPath: string } = useRouter();
     locale = locale || 'es';
-    const sections: string[] = ['about', 'technologies', 'courses', 'projects'];
+    const sections: string[] = ['about', 'projects', 'technologies', 'courses'];
     const { t }: { t: Function } = useTranslation('common');
     const [toggleMenu, setToggleMenu] = useState<boolean>(false);
     const [toggleMenuLanguage, setToggleMenuLanguage] = useState<boolean>(false);
@@ -59,7 +59,7 @@ const Navbar: FC = () => {
                         <ul className="py-1" aria-labelledby="dropdown">
                             {locales && locales.map((localeElement, index) => (
                                 <li key={index}>
-                                    <button onClick={() => changeLocale(localeElement)} className="block py-2 px-4 text-slate-200 hover:bg-white dark:hover:text-white hover:bg-transparent">
+                                    <button onClick={() => changeLocale(localeElement)} className="block py-2 px-4 text-slate-200 dark:hover:text-white hover:bg-transparent">
                                         {t(localeElement)}
                                     </button>
                                 </li>
@@ -110,7 +110,7 @@ const Navbar: FC = () => {
                         {sections.map((section, index) => (
                             <li key={index}>
                                 <Link href={`#${section}`} locale={locale}>
-                                    <a className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 hover:bg-white dark:hover:text-white hover:bg-transparent" aria-current="page">
+                                    <a className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 dark:hover:text-white hover:bg-transparent" aria-current="page">
                                         {t(section)}
                                     </a>
                                 </Link>
