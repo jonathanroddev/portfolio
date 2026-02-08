@@ -109,10 +109,8 @@ const Navbar: FC = () => {
                     <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2">
                         {sections.map((section, index) => (
                             <li key={index}>
-                                <Link href={`#${section}`} locale={locale}>
-                                    <a className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 dark:hover:text-white hover:bg-transparent" aria-current="page">
-                                        {t(section)}
-                                    </a>
+                                <Link href={`#${section}`} locale={locale} className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 dark:hover:text-white hover:bg-transparent" aria-current="page">
+                                    {t(section)}
                                 </Link>
                             </li>
                         ))}

@@ -8,8 +8,8 @@ const Banner: FC = () => {
 
   return (
     <section id="banner" className="h-screen-minus-navbar overflow-hidden relative" >
-      <div className="w-full h-full filter-custom scale-105">
-        <Image src={banner} alt={t("alt-banner")} layout="fill" />
+      <div className="w-full h-full filter-custom scale-105 absolute">
+        <Image src={banner} alt={t("alt-banner")} fill={true} loading="eager" />
       </div>
       <div className="lg:w-9/12 mx-auto h-full absolute inset-0 px-2 sm:px-4">
         <div className="container h-full flex flex-wrap flex-col justify-center items-center mx-auto">

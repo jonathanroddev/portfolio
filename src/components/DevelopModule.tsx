@@ -17,7 +17,7 @@ const DevelopModule: FC<{ develop: Develop }> = ({ develop }) => {
                         {develop.getTechnologyList.map((technology, index) => (
                             <div key={index} className="md:w-5/12 w-1/2 flex flex-wrap flex-col items-center mb-4">
                                 <div className="w-7/12 mx-auto rounded-lg twist">
-                                    <Image src={technology.getLogo} alt={t(technology.getAltLogo)} layout="responsive" />
+                                    <Image src={technology.getLogo} alt={t(technology.getAltLogo)} />
                                 </div>
                                 <p className="w-auto text-center font-inter text-2xl text-sky-700 font-normal bg-slate-300">{technology.getTitle}</p>
                             </div>

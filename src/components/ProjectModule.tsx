@@ -28,9 +28,7 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                     <Image
                         src={project.getLogo}
                         alt={t(project.getAltLogo)}
-                        layout="intrinsic"
                         width={48}
-                        height={48}
                         className="object-contain"
                     />
                 </div>
@@ -74,7 +72,6 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                     <Image
                         src={github.getLogo}
                         alt={t(github.getAltLogo)}
-                        layout="intrinsic"
                         width={20}
                         height={20}
                     />

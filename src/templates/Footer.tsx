@@ -11,13 +11,13 @@ const Footer: FC = () => {
       "Linkedin",
       "https://www.linkedin.com/in/jonathan-rodr%C3%ADguez-mendoza-091717191/",
       linkedinLogo,
-      "alt-linkedin"
+      "alt-linkedin",
     ),
     new SocialMedia(
       "GitHub",
       "https://github.com/jonathanroddev",
       githubLogo,
-      "alt-github"
+      "alt-github",
     ),
     new SocialMedia("X", "https://x.com/jonathanrodmen", xLogo, "alt-x"),
   ];
@@ -37,7 +37,6 @@ const Footer: FC = () => {
               <Image
                 src={socialMedia.getLogo}
                 alt={t(socialMedia.getAltLogo)}
-                layout="intrinsic"
               />
             </div>
           </a>

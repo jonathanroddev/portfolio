@@ -9,7 +9,7 @@ const CourseModule: FC<{ course: Course }> = ({ course }) => {
         <div className="flex flex-wrap my-2 p-2 border-dashed border-2 border-sky-600 rounded-xl">
             <div className="flex flew-wrap">
                 <div className="w-16 my-auto">
-                    <Image src={course.getLogo} alt={t(course.getAltLogo)} layout="intrinsic" />
+                    <Image src={course.getLogo} alt={t(course.getAltLogo)} />
                 </div>
                 <p className="my-auto pl-4 font-recursive font-normal hyphens-auto">{t(course.getName)}</p>
             </div>
