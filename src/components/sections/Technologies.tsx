@@ -32,7 +32,7 @@ const Technologies: FC = () => {
     const othersList: Technology[] = [
         new Technology("ElasticSearch", elasticSearchLogo, "alt-elastic", "impl-info-elasticsearch"),
         new Technology("Docker", dockerLogo, "alt-docker", "impl-info-docker"),
-        new Technology("Keycloak", keycloakLogo, "alt-keycloak", "impl-info-keycloack"),
+        new Technology("Keycloak", keycloakLogo, "alt-keycloak", "impl-info-keycloak"),
         new Technology("CAS", casLogo, "alt-cas", "impl-info-cas")
     ];
     const developList: Develop[] = [
