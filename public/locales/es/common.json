@@ -56,5 +56,20 @@
     "more-info-soon": "Más información próximamente",
     "oniria-desc": "Backend de Oniria, el juego de rol",
     "repository": "Repositorio",
-    "alfred-desc": "Backend de Alfred MG, el gestor automatizado de edificios"
+    "alfred-desc": "Backend de Alfred MG, el gestor automatizado de edificios",
+    "impl-info-react": "Desarrollo de SPAs reactivas mediante Hooks y optimización de renderizado.",
+    "impl-info-redux": "Gestión de estado global complejo con middleware para lógica asíncrona.",
+    "impl-info-tailwind": "Maquetación ágil con diseño utility-first, garantizando total adaptabilidad y consistencia visual.",
+    "impl-info-typescript": "Implementación de tipado estricto para reducir errores en runtime y mejorar la mantenibilidad del código.",
+    "impl-info-springboot": "Creación de microservicios robustos bajo arquitectura hexagonal, priorizando el desacoplamiento.",
+    "impl-info-fastapi": "Desarrollo de APIs de alto rendimiento con Python, aprovechando la validación de datos con Pydantic.",
+    "impl-info-php": "Desarrollo de lógica de servidor y gestión de peticiones dinámicas en entornos tradicionales.",
+    "impl-info-node": "Construcción de servicios escalables y eficientes basados en eventos y no bloqueante.",
+    "impl-info-postgres": "Modelado de datos relacionales complejos, optimización de queries y uso de tipos avanzados.",
+    "impl-info-mysql": "Administración y diseño de bases de datos relacionales optimizadas para consistencia y velocidad.",
+    "impl-info-mariadb": "Gestión de almacenamiento persistente con alto rendimiento y compatibilidad en entornos de código abierto.",
+    "impl-info-elasticsearch": "Implementación de motores de búsqueda avanzada, indexación de datos y análisis en tiempo real.",
+    "impl-info-docker": "Contenerización de aplicaciones y orquestación con Compose para entornos de desarrollo.",
+    "impl-info-keycloak": "Gestión de identidad y acceso con protocolos OAuth2 y OpenID Connect para securizar APIs. Uso también de Logstash para indexación de datos de usuarios.",
+    "impl-info-cas": "Integración de sistemas de Single Sign-On para la autenticación centralizada en múltiples servicios."
 }

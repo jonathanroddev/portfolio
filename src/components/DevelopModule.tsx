@@ -1,32 +1,47 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { useTranslation } from 'next-i18next';
 import Image from 'next/image';
 import { Develop } from '../models';
+import TechCard from './TechCard';
 
 const DevelopModule: FC<{ develop: Develop }> = ({ develop }) => {
-    const { t }: { t: Function } = useTranslation('common');
+    const { t } = useTranslation('common');
+    const [isOpen, setIsOpen] = useState(false);
+
     return (
-        <div className="md:w-5/12 w-full relative">
-            <div className="opacity-30 absolute p-16">
-                <Image src={develop.getBgImage} alt={t(develop.getAltBg)} />
-            </div>
-            <div className="flex flex-wrap justify-center content-start w-full h-full z-10 top-0">
-                <h4 className="font-recursive text-4xl text-sky-600 font-normal text-center mb-4 mt-6 bg-slate-300 inline-block h-fit">{t(develop.getTitle)}</h4>
-                <div className="w-full">
-                    <div className="m-auto rounded-lg w-full flex flex-wrap justify-between">
-                        {develop.getTechnologyList.map((technology, index) => (
-                            <div key={index} className="md:w-5/12 w-1/2 flex flex-wrap flex-col items-center mb-4">
-                                <div className="w-7/12 mx-auto rounded-lg twist">
-                                    <Image src={technology.getLogo} alt={t(technology.getAltLogo)} />
-                                </div>
-                                <p className="w-auto text-center font-inter text-2xl text-sky-700 font-normal bg-slate-300">{technology.getTitle}</p>
-                            </div>
-                        ))}
-                    </div>
+        <div className="w-full mb-4 border-b border-sky-600/30">
+            <button
+                onClick={() => setIsOpen(!isOpen)}
+                className="w-full flex items-center justify-between p-4 bg-slate-300 hover:bg-slate-400/20 transition-colors rounded-t-xl overflow-hidden relative"
+            >
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 opacity-50 pointer-events-none transition-transform duration-500 group-hover:scale-110">
+                    <Image src={develop.getBgImage} alt={t(develop.getAltBg)} />
+                </div>
+
+                <h4 className="font-recursive text-3xl text-sky-700 font-normal z-10">
+                    {t(develop.getTitle)}
+                </h4>
+
+                <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none" viewBox="0 0 24 24"
+                    strokeWidth={2.5}
+                    stroke="currentColor"
+                    className={`w-6 h-6 text-sky-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                >
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </button>
+
+            <div className={`overflow-hidden transition-all duration-500 ease-in-out ${isOpen ? 'max-h-[2000px] opacity-100 py-6' : 'max-h-0 opacity-0'}`}>
+                <div className="flex flex-wrap justify-around items-stretch px-2">
+                    {develop.getTechnologyList.map((technology, index) => (
+                        <TechCard key={index} technology={technology} />
+                    ))}
                 </div>
             </div>
         </div>
-    )
+    );
 }
 
 export default DevelopModule;

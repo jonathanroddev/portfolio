@@ -56,5 +56,20 @@
     "more-info-soon": "More information coming soon",
     "oniria-desc": "Oniria Backend, the role game",
     "repository": "Repository",
-    "alfred-desc": "Backend for Alfred MG, the automated building management"
+    "alfred-desc": "Backend for Alfred MG, the automated building management",
+    "impl-info-react": "Development of reactive SPAs using Hooks and rendering optimization.",
+    "impl-info-redux": "Complex global state management using middleware for asynchronous logic.",
+    "impl-info-tailwind": "Agile layout with utility-first design, ensuring full responsiveness and visual consistency.",
+    "impl-info-typescript": "Implementation of strict typing to reduce runtime errors and improve code maintainability.",
+    "impl-info-springboot": "Creation of robust microservices under hexagonal architecture, prioritizing decoupling.",
+    "impl-info-fastapi": "Development of high-performance APIs with Python, leveraging data validation with Pydantic.",
+    "impl-info-php": "Server-side logic development and dynamic request management in traditional environments.",
+    "impl-info-node": "Building scalable and efficient services based on event-driven, non-blocking architecture.",
+    "impl-info-postgres": "Modeling of complex relational data, query optimization, and use of advanced types.",
+    "impl-info-mysql": "Administration and design of relational databases optimized for consistency and speed.",
+    "impl-info-mariadb": "Persistent storage management with high performance and open-source compatibility.",
+    "impl-info-elasticsearch": "Implementation of advanced search engines, data indexing, and real-time analysis.",
+    "impl-info-docker": "Application containerization and orchestration with Compose for development environments.",
+    "impl-info-keycloak": "Identity and access management with OAuth2 and OpenID Connect to secure APIs. Also using Logstash for user data indexing.",
+    "impl-info-cas": "Integration of Single Sign-On systems for centralized authentication across multiple services."
 }
