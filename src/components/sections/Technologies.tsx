@@ -45,7 +45,7 @@ const Technologies: FC = () => {
         <section id="technologies" className="bg-slate-300 w-full py-12">
             <div className="container mx-auto px-4">
                 <article className="mb-12">
-                    <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 italic">
+                    <h3 className="font-recursive text-5xl text-sky-600 font-normal text-center mb-4 italic">
                         {t('technologies-title')}
                     </h3>
                     <p className="font-inter text-2xl text-slate-700 font-light text-justify indent-14 sm:w-9/12 mx-auto">

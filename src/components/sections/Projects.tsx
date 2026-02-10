@@ -18,8 +18,8 @@ const Projects: FC = () => {
     ];
     return (
         <section id="projects" className="bg-slate-200 w-full">
-            <div className="container flex flex-col justify-center items-center mx-auto md:pb-8 pb-4">
-                <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6">{t("projects-title")}</h3>
+            <div className="container flex flex-wrap mx-auto px-2 sm:px-4">
+                <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6 mx-auto italic">{t("projects-title")}</h3>
                 <div className="flex items-center md:flex-row flex-col px-2">
                     <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                         {projectList.map((project, index) => (

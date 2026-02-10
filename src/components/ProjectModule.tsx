@@ -37,7 +37,7 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                 </h3>
             </div>
 
-            <p className="flex-grow font-recursive font-normal text-sm leading-relaxed mb-4 text-sky-700">
+            <p className="flex-grow font-recursive font-normal text-base leading-relaxed mb-4 text-sky-700">
                 {t(project.getDescription)}
             </p>
 
@@ -48,12 +48,12 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                         className="flex items-center gap-1 group relative"
                         title={`${tech.getName} v${tech.getVersion}`}
                     >
-                        <div className="w-5 h-5 relative">
+                        <div className="w-8 h-8 relative">
                             <Image
                                 src={tech.getLogo}
                                 alt={t(tech.getAltLogo)}
-                                width={20}
-                                height={20}
+                                width={50}
+                                height={50}
                                 className="object-cover filter grayscale-0 hover:grayscale transition-all h-inherit"
                             />
                         </div>
