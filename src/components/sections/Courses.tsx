@@ -43,11 +43,11 @@ const Courses: FC = () => {
     };
 
     return (
-        <section id="courses" className="bg-slate-200 w-full overflow-hidden">
+        <section id="courses" className="bg-slate-200 w-full overflow-hidden dark:bg-slate-500 transition-colors duration-300">
             <div className="container flex flex-col justify-center items-center mx-auto">
                 <article className="px-2 sm:px-4">
-                    <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6 italic">{t('courses-title')}</h3>
-                    <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 md:mt-0 mt-2 sm:w-9/12 mx-auto">
+                    <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6 italic dark:text-sky-500 transition-colors duration-300">{t('courses-title')}</h3>
+                    <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 md:mt-0 mt-2 sm:w-9/12 mx-auto dark:text-slate-300 transition-colors duration-300">
                         <Trans>{t('courses-text')}</Trans>
                     </p>
                 </article>
@@ -56,7 +56,7 @@ const Courses: FC = () => {
 
                     <button
                         onClick={() => scroll('left')}
-                        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-sky-600/10 hover:bg-sky-600 p-1.5 rounded-full transition-all text-sky-600 hover:text-white hidden md:block"
+                        className="absolute left-0 top-1/2 -translate-y-1/2 z-20 bg-sky-600/10 hover:bg-sky-600 p-1.5 rounded-full transition-all text-sky-600 hover:text-white hidden md:block dark:bg-slate-900/10 dark:hover:bg-sky-900 dark:text-sky-800 dark:hover:text-white duration-300"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -77,7 +77,7 @@ const Courses: FC = () => {
 
                     <button
                         onClick={() => scroll('right')}
-                        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-sky-600/10 hover:bg-sky-600 p-1.5 rounded-full transition-all text-sky-600 hover:text-white hidden md:block"
+                        className="absolute right-0 top-1/2 -translate-y-1/2 z-20 bg-sky-600/10 hover:bg-sky-600 p-1.5 rounded-full transition-all text-sky-600 hover:text-white hidden md:block dark:bg-slate-900/10 dark:hover:bg-sky-900 dark:text-sky-800 dark:hover:text-white duration-300"
                     >
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-5 h-5">
                             <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
