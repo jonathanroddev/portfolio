@@ -22,7 +22,7 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
     ];
 
     return (
-        <div className="flex flex-col h-full my-2 p-4 border-double border-2 border-sky-600 rounded-xl bg-sky-50/10 hover:bg-slate-300 transition-colors">
+        <div className="flex flex-col h-full my-2 p-4 border-double border-2 border-sky-600 rounded-xl bg-sky-50/10 hover:bg-slate-300 transition-colors duration-300 dark:bg-slate-400 dark:border-sky-800">
             <div className="flex items-center gap-4 mb-3">
                 <div className="w-12 h-12 flex-shrink-0 relative">
                     <Image
@@ -32,12 +32,12 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                         className="object-contain"
                     />
                 </div>
-                <h3 className="font-recursive font-bold text-lg hyphens-auto">
+                <h3 className="font-recursive font-bold text-lg hyphens-auto transition-colors duration-300 dark:text-slate-900">
                     {t(project.getName)}
                 </h3>
             </div>
 
-            <p className="flex-grow font-recursive font-normal text-base leading-relaxed mb-4 text-sky-700">
+            <p className="flex-grow font-recursive font-normal text-base leading-relaxed mb-4 text-sky-700 transition-colors duration-300 dark:text-sky-800">
                 {t(project.getDescription)}
             </p>
 
@@ -45,7 +45,7 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                 {techStack.map((tech, index) => (
                     <div
                         key={`${tech.getName}-${index}`}
-                        className="flex items-center gap-1 group relative"
+                        className="flex items-center gap-1 group relative transition-colors duration-300 dark:bg-slate-300 rounded-lg p-1 hover:cursor-pointer"
                         title={`${tech.getName} v${tech.getVersion}`}
                     >
                         <div className="w-8 h-8 relative">
@@ -67,7 +67,7 @@ const ProjectModule: FC<{ project: Project }> = ({ project }) => {
                     href={project.getRepository}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 font-recursive font-light italic text-sm hover:text-sky-600 transition-colors"
+                    className="flex items-center gap-2 font-recursive font-light italic text-sm hover:text-sky-600 transition-colors duration-300 dark:text-slate-900 dark:hover:text-sky-700"
                 >
                     <Image
                         src={github.getLogo}

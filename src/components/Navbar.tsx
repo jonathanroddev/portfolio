@@ -64,7 +64,7 @@ const Navbar: FC = () => {
                 <div className="flex items-center md:order-2 relative">
                     <button
                         onClick={toggleDarkMode}
-                        className="p-2 rounded-lg text-slate-200 hover:bg-slate-600 dark:hover:bg-slate-800 transition-colors"
+                        className="p-2 rounded-lg text-slate-200 hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors"
                         aria-label="Toggle Dark Mode"
                     >
                         {isDark ? (
@@ -79,7 +79,7 @@ const Navbar: FC = () => {
                     </button>
                     <button
                         type="button"
-                        className="font-normal font-inter p-2 flex"
+                        className="font-normal font-inter p-2 flex hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors rounded-lg"
                         id="user-menu-button"
                         aria-expanded="false"
                         data-dropdown-toggle="dropdown"
@@ -88,12 +88,12 @@ const Navbar: FC = () => {
                         <Image src={language} alt={t("alt-language")} />
                     </button>
                     <div
-                        className={`${!toggleMenuLanguage ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto transition duration-200 ease-in-out absolute top-7 right-6 w-fit z-50 text-base list-none rounded divide-y shadow bg-gray-700 divide-gray-600`}
+                        className={`${!toggleMenuLanguage ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto transition duration-300 ease-in-out absolute top-7 right-6 w-fit z-50 text-base list-none rounded divide-y shadow bg-gray-700 divide-gray-600 dark:bg-slate-800`}
                         id="dropdown"
                     >
                         <ul className="py-1" aria-labelledby="dropdown">
                             {locales && locales.map((localeElement, index) => (
-                                <li key={index}>
+                                <li key={index} className='hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors'>
                                     <button onClick={() => changeLocale(localeElement)} className="block py-2 px-4 text-slate-200 hover:text-white hover:bg-transparent">
                                         {t(localeElement)}
                                     </button>
@@ -141,10 +141,10 @@ const Navbar: FC = () => {
                     className={`${!toggleMenu ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto md:opacity-100 transition duration-300 ease-in-out justify-between items-center w-full md:flex md:w-auto md:order-1 md:relative absolute inset-x-0 md:top-0 top-10`}
                     id="mobile-menu-2"
                 >
-                    <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2">
+                    <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2 dark:bg-slate-800 transition-colors duration-300">
                         {sections.map((section, index) => (
                             <li key={index}>
-                                <Link href={`#${section}`} locale={locale} className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 hover:text-white" aria-current="page">
+                                <Link href={`#${section}`} locale={locale} className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 hover:text-white hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors md:rounded-lg" aria-current="page">
                                     {t(section)}
                                 </Link>
                             </li>

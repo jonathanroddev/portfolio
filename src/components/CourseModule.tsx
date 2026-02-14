@@ -6,7 +6,7 @@ import { Course } from '../models';
 const CourseModule: FC<{ course: Course }> = ({ course }) => {
     const { t }: { t: Function } = useTranslation('common');
     return (
-        <div className="flex flex-wrap my-2 p-2 border-dashed border-2 border-sky-600 rounded-xl">
+        <div className="flex flex-wrap my-2 p-2 border-dashed border-2 border-sky-600 rounded-xl transition-colors duration-300 dark:border-sky-800 dark:bg-slate-400">
             <div className="flex flew-wrap">
                 <div className="w-16 my-auto">
                     <Image src={course.getLogo} alt={t(course.getAltLogo)} />

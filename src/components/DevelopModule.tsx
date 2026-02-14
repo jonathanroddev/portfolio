@@ -12,13 +12,13 @@ const DevelopModule: FC<{ develop: Develop }> = ({ develop }) => {
         <div className="w-full mb-4 border-b border-sky-600/30">
             <button
                 onClick={() => setIsOpen(!isOpen)}
-                className="w-full flex items-center justify-between p-4 bg-slate-300 hover:bg-slate-400/20 transition-colors rounded-t-xl overflow-hidden relative"
+                className="w-full flex items-center justify-between p-4 bg-slate-300 hover:bg-slate-400/20 transition-colors rounded-t-xl overflow-hidden relative duration-300 dark:bg-slate-600"
             >
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 opacity-50 pointer-events-none transition-transform duration-500 group-hover:scale-110">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 opacity-50 pointer-events-none transition duration-500 group-hover:scale-110 dark:opacity-95">
                     <Image src={develop.getBgImage} alt={t(develop.getAltBg)} />
                 </div>
 
-                <h4 className="font-recursive text-3xl text-sky-700 font-normal z-10">
+                <h4 className="font-recursive text-3xl text-sky-700 font-normal z-10 transition-colors duration-300 dark:text-sky-500">
                     {t(develop.getTitle)}
                 </h4>
 
@@ -27,7 +27,7 @@ const DevelopModule: FC<{ develop: Develop }> = ({ develop }) => {
                     fill="none" viewBox="0 0 24 24"
                     strokeWidth={2.5}
                     stroke="currentColor"
-                    className={`w-6 h-6 text-sky-600 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                    className={`w-6 h-6 text-sky-600 transition duration-300 dark:text-sky-500 ${isOpen ? 'rotate-180' : ''}`}
                 >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                 </svg>
