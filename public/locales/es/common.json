@@ -68,8 +68,8 @@
     "impl-info-postgres": "Modelado de datos relacionales complejos, optimización de queries y uso de tipos avanzados.",
     "impl-info-mysql": "Administración y diseño de bases de datos relacionales optimizadas para consistencia y velocidad.",
     "impl-info-mariadb": "Gestión de almacenamiento persistente con alto rendimiento y compatibilidad en entornos de código abierto.",
-    "impl-info-elasticsearch": "Implementación de motores de búsqueda avanzada, indexación de datos y análisis en tiempo real.",
+    "impl-info-elasticsearch": "Implementación de motores de búsqueda avanzada, indexación de datos (Logstash) y análisis en tiempo real.",
     "impl-info-docker": "Contenerización de aplicaciones y orquestación con Compose para entornos de desarrollo.",
-    "impl-info-keycloak": "Gestión de identidad y acceso con protocolos OAuth2 y OpenID Connect para securizar APIs. Uso también de Logstash para indexación de datos de usuarios.",
+    "impl-info-keycloak": "Gestión de identidad y acceso con protocolos OAuth2 y OpenID Connect para securizar APIs.",
     "impl-info-cas": "Integración de sistemas de Single Sign-On para la autenticación centralizada en múltiples servicios."
 }
