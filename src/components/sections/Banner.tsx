@@ -28,7 +28,7 @@ const Banner: FC = () => {
           </h1>
           <p
             className="md:mt-12 md:mb-0 mt-12 font-inter italic md:text-3xl text-2xl text-slate-200 font-extralight text-right w-full md:px-0 px-3">
-            {`${t("imagine-it")}. ${t("design-it")}. ${t("create-it")}.`}
+            {`${t("about-me-short")}.`}
           </p>
         </div>
       </div>

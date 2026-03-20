@@ -30,7 +30,10 @@ const About: FC = () => {
                             <Trans>{t('about-text-p1', { yearsOfExperience })}</Trans>
                         </p>
                         <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 mt-2 dark:text-slate-300 transition-colors duration-300">
-                            {t('about-text-p2')}
+                            <Trans>{t('about-text-p2')}</Trans>
+                        </p>
+                        <p className="font-inter text-2xl text-slate-700 md:font-extralight font-light text-justify indent-14 mt-2 dark:text-slate-300 transition-colors duration-300">
+                            {t('about-text-p3')}
                         </p>
                     </article>
                 </div>

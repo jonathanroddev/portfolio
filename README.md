@@ -1,34 +1,136 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Jonathan Rodríguez - Portfolio
 
-## Getting Started
+A modern, responsive personal portfolio website showcasing projects, skills, and professional experience. Built with cutting-edge web technologies to deliver an optimal user experience.
 
-First, run the development server:
+## 🚀 About the Project
+
+This portfolio is a showcase of my work as a full-stack developer. It features a collection of projects, technical skills, courses completed, and ways to get in touch. The site is built with performance and user experience in mind, with support for multiple languages and a clean, modern design.
+
+## 👤 About Me
+
+I'm Jonathan Rodríguez, a passionate full-stack web developer. I focus on building scalable, performant, and user-friendly applications. With a strong foundation in both frontend and backend development, I'm committed to continuous learning and staying updated with the latest industry trends.
+
+**Key Skills:**
+- Full-stack web development
+- Responsive Design & UI/UX
+- RESTful APIs
+- Database Design
+
+## ✨ Features
+
+- **Multi-language Support**: Localized content in English and Spanish using next-i18next
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Project Showcase**: Display of featured projects with descriptions
+- **Tech Stack Display**: Showcase of technologies and programming languages
+- **Courses Section**: Educational background and certifications
+- **Performance Optimized**: Built with Next.js for optimal performance and SEO
+- **Type Safe**: Full TypeScript implementation for better code reliability
+
+## 🛠️ Tech Stack
+
+- **Frontend Framework**: [Next.js](https://nextjs.org/) 16.0+
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **CSS Processing**: PostCSS & Autoprefixer
+- **Internationalization**: [next-i18next](https://github.com/isaachinman/next-i18next)
+- **Email Service**: [Nodemailer](https://nodemailer.com/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **Package Manager**: npm
+
+**Requirements:**
+- Node.js >= 22.0.0
+- npm or yarn
+
+## 🚀 Getting Started
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone <repository-url>
+cd portfolio
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Start the project:
+```bash
+npm run start
+``
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+The application will be available at [http://localhost:3000](http://localhost:3000). The page will automatically reload as you make changes.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+```bash
+npm run build
+npm run start
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Linting
 
-## Learn More
+Check code quality and style issues:
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+npm run lint
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📁 Project Structure
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+portfolio/
+├── pages/              # Next.js pages and API routes
+│   ├── _app.tsx       # App wrapper
+│   ├── index.tsx      # Home page
+│   └── api/           # Backend API endpoints
+├── src/
+│   ├── components/    # Reusable React components
+│   │   ├── sections/  # Page sections (About, Banner, etc.)
+│   │   └── ...
+│   ├── templates/     # Layout templates (Header, Footer, Main)
+│   ├── models/        # TypeScript interfaces and types
+│   ├── assets/        # Images and static assets
+│   └── ...
+├── public/            # Static files
+│   └── locales/       # Translation files (en, es)
+├── styles/            # Global styles
+├── next.config.js     # Next.js configuration
+├── tailwind.config.js # Tailwind CSS configuration
+└── tsconfig.json      # TypeScript configuration
+```
 
-## Deploy on Vercel
+## 🌐 Available Scripts
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Command | Purpose |
+|---------|---------|
+| `npm run dev` | Start development server |
+| `npm run build` | Build for production |
+| `npm run start` | Run production build |
+| `npm run lint` | Run ESLint code quality checks |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 📞 Contact
+
+Feel free to reach out! You can contact me through:
+- **Email**: Check the footer for contact information
+- **Social Media**: Links available in the portfolio footer
+
+## 📝 License
+
+This project is personal and proprietary. Feel free to use it as inspiration for your own portfolio, but please don't copy the content or design without permission.
+
+## 🙏 Acknowledgments
+
+- Built with [Next.js](https://nextjs.org/)
+- Styled with [Tailwind CSS](https://tailwindcss.com/)
+- Hosted and deployed with modern best practices in Vercel
