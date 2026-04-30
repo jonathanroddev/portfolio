@@ -5,6 +5,7 @@ export default class Project {
         private name: string,
         private description: string,
         private repository: string,
+        private implementationInfo: string,
         private logo: any,
         private altLogo: string,
         private frameworks: Framework[] | null,
@@ -14,6 +15,7 @@ export default class Project {
     get getName() { return this.name; }
     get getDescription() { return this.description; }
     get getRepository() { return this.repository; }
+    get getImplInfo() { return this.implementationInfo; }
     get getLogo() { return this.logo; }
     get getAltLogo() { return this.altLogo; }
     get getFrameworks() { return this.frameworks; }

@@ -13,8 +13,8 @@ const Projects: FC = () => {
     const java: ProgrammingLanguage = new ProgrammingLanguage("Java", "21.0.5", javaLogo, "alt-java");
     const springBoot: Framework = new Framework("SpringBoot", "3.4.2", springbootLogo, "alt-springboot", [java])
     const projectList: Project[] = [
-        new Project("Alfred Backend", "alfred-desc", "https://github.com/jonathanroddev/Alfred", alfredLogo, "alt-alfred", [springBoot], [java], [postgresql]),
-        new Project("Oniria Backend", "oniria-desc", "https://github.com/jonathanroddev/oniria-back", others, "alt-oniria", [fastApi], [python], [postgresql]),
+        new Project("Alfred Backend", "alfred-desc", "https://github.com/jonathanroddev/Alfred", "alfred-impl-info", alfredLogo, "alt-alfred", [springBoot], [java], [postgresql]),
+        new Project("Oniria Backend", "oniria-desc", "https://github.com/jonathanroddev/oniria-back", "oniria-impl-info", others, "alt-oniria", [fastApi], [python], [postgresql]),
     ];
     return (
         <section id="projects" className="bg-slate-200 w-full dark:bg-slate-500 transition-colors duration-300">

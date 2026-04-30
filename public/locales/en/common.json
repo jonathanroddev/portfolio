@@ -59,6 +59,8 @@
     "oniria-desc": "Oniria Backend, the role game",
     "repository": "Repository",
     "alfred-desc": "Backend for Alfred MG, the automated building management",
+    "alfred-impl-info": "Building management system with hexagonal architecture, REST API with Spring Boot, PostgreSQL database, and automated deployment with Docker.",
+    "oniria-impl-info": "Role-playing game backend with FastAPI, player and character management, inventory system, combat mechanics, PostgreSQL database for persistent game state, and Docker deployment.",
     "impl-info-react": "Development of reactive SPAs using Hooks and rendering optimization.",
     "impl-info-redux": "Complex global state management using middleware for asynchronous logic.",
     "impl-info-tailwind": "Agile layout with utility-first design, ensuring full responsiveness and visual consistency.",
