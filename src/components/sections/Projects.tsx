@@ -1,40 +1,154 @@
-import { FC } from "react";
-import { useTranslation, } from "next-i18next";
-import { ProgrammingLanguage, Framework, Database, Project } from "../../models";
-import ProjectModule from "../ProjectModule";
-import { pythonLogo, fastapilogo, postgresLogo, others, javaLogo, springbootLogo, alfredLogo } from "../../assets/technologies";
+import { FC, useState, useEffect, useRef } from 'react';
+import { useTranslation } from 'next-i18next';
+import ProjectModal, { PROJECTS } from '../ProjectModal';
+
+const Tag: FC<{ label: string }> = ({ label }) => (
+    <span
+        className="font-mono text-[0.7rem] px-[0.65rem] py-[0.2rem] tracking-[0.04em]"
+        style={{ background: 'var(--tag-bg)', color: 'var(--tag-color)', border: '1px solid #2d3d3a' }}
+    >
+        {label}
+    </span>
+);
+
+const SectionLabel: FC<{ label: string }> = ({ label }) => (
+    <p className="flex items-center gap-3 font-mono text-[0.75rem] tracking-[0.15em] uppercase text-color-accent mb-10">
+        <span>{label}</span>
+        <span className="flex-1 h-px max-w-[180px]" style={{ background: 'var(--border)' }} />
+    </p>
+);
+
+const PROJECT_STACKS: Record<string, string[]> = {
+    alfred:    ['Spring Boot 3.4', 'Java 21', 'PostgreSQL 17', 'Docker'],
+    oniria:    ['FastAPI', 'Python 3.12', 'PostgreSQL 17', 'Docker'],
+    portfolio: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS'],
+};
 
 const Projects: FC = () => {
-    const { t }: { t: Function } = useTranslation("common");
+    const { t } = useTranslation('common');
+    const [activeModal, setActiveModal] = useState<string | null>(null);
+    const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
-    const python: ProgrammingLanguage = new ProgrammingLanguage("Python", "^3.12", pythonLogo, "alt-python");
-    const fastApi: Framework = new Framework("FastAPI", "^0.116.1", fastapilogo, "alt-fastapi", [python])
-    const postgresql: Database = new Database("Postgres", "17", postgresLogo, "alt-postgres")
-    const java: ProgrammingLanguage = new ProgrammingLanguage("Java", "21.0.5", javaLogo, "alt-java");
-    const springBoot: Framework = new Framework("SpringBoot", "3.4.2", springbootLogo, "alt-springboot", [java])
-    const projectList: Project[] = [
-        new Project("Alfred Backend", "alfred-desc", "https://github.com/jonathanroddev/Alfred", "alfred-impl-info", alfredLogo, "alt-alfred", [springBoot], [java], [postgresql]),
-        new Project("Oniria Backend", "oniria-desc", "https://github.com/jonathanroddev/oniria-back", "oniria-impl-info", others, "alt-oniria", [fastApi], [python], [postgresql]),
-    ];
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach((entry) => {
+                    if (entry.isIntersecting) {
+                        (entry.target as HTMLElement).style.opacity = '1';
+                        (entry.target as HTMLElement).style.transform = 'translateY(0)';
+                    }
+                });
+            },
+            { threshold: 0.1 }
+        );
+        cardRefs.current.forEach((el) => el && observer.observe(el));
+        return () => observer.disconnect();
+    }, []);
+
     return (
-        <section id="projects" className="bg-slate-200 w-full dark:bg-slate-500 transition-colors duration-300">
-            <div className="container flex flex-wrap mx-auto px-2 sm:px-4">
-                <h3 className="font-recursive text-5xl text-sky-700 font-normal text-center mb-4 mt-6 mx-auto italic dark:text-sky-500 transition-colors duration-300">{t("projects-title")}</h3>
-                <div className="flex items-center md:flex-row flex-col px-2">
-                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-                        {projectList.map((project, index) => (
-                            <ProjectModule key={index} project={project}></ProjectModule>
+        <>
+            <section id="projects" style={{ background: 'var(--bg)', padding: 'var(--section-gap) 0' }}>
+                <div className="max-w-content mx-auto px-8">
+                    <SectionLabel label={t('section-projects')} />
+
+                    <div
+                        className="grid grid-cols-1 md:grid-cols-2"
+                        style={{ gap: '1px', background: 'var(--border)', border: '1px solid var(--border)' }}
+                    >
+                        {PROJECTS.map((proj, i) => (
+                            <ProjectCard
+                                key={proj.id}
+                                proj={proj}
+                                index={i}
+                                t={t}
+                                cardRef={(el) => { cardRefs.current[i] = el; }}
+                                onOpen={() => setActiveModal(proj.id)}
+                                stack={PROJECT_STACKS[proj.id]}
+                            />
                         ))}
+
+                        {/* Placeholder */}
+                        <div
+                            ref={(el) => { cardRefs.current[3] = el; }}
+                            className="flex items-center justify-center"
+                            style={{
+                                background: 'var(--bg2)',
+                                minHeight: 220,
+                                opacity: 0,
+                                transform: 'translateY(12px)',
+                                transition: 'opacity 0.5s, transform 0.5s',
+                            }}
+                        >
+                            <div className="text-center">
+                                <p className="font-mono text-[0.75rem] text-color-muted tracking-[0.1em]">// próximamente</p>
+                                <p className="font-display text-[1.1rem] mt-2" style={{ color: 'var(--border)' }}>
+                                    {t('proj-new')}
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div className="relative md:h-48 h-24">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320" preserveAspectRatio="none" className="absolute bottom-0 left-0 h-full w-full">
-                    <path className="fill-slate-300 dark:fill-slate-600 transition-colors duration-300" fillOpacity="1" d="M0,160L80,165.3C160,171,320,181,480,197.3C640,213,800,235,960,229.3C1120,224,1280,192,1360,176L1440,160L1440,320L1360,320C1280,320,1120,320,960,320C800,320,640,320,480,320C320,320,160,320,80,320L0,320Z"></path>
-                </svg>
-            </div>
-        </section>
-    )
+            </section>
+
+            <ProjectModal projectId={activeModal} onClose={() => setActiveModal(null)} />
+        </>
+    );
+};
+
+interface CardProps {
+    proj: (typeof PROJECTS)[number];
+    index: number;
+    t: Function;
+    cardRef: (el: HTMLDivElement | null) => void;
+    onOpen: () => void;
+    stack: string[];
 }
+
+const ProjectCard: FC<CardProps> = ({ proj, index, t, cardRef, onOpen, stack }) => {
+    const accentBarRef = useRef<HTMLDivElement>(null);
+
+    return (
+        <div
+            ref={cardRef}
+            onClick={onOpen}
+            className="relative flex flex-col gap-4 p-9 cursor-pointer overflow-hidden"
+            style={{
+                background: 'var(--bg)',
+                opacity: 0,
+                transform: 'translateY(12px)',
+                transition: 'opacity 0.5s, transform 0.5s, background 0.2s',
+            }}
+            onMouseEnter={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = 'var(--bg2)';
+                if (accentBarRef.current) accentBarRef.current.style.transform = 'scaleX(1)';
+            }}
+            onMouseLeave={(e) => {
+                (e.currentTarget as HTMLDivElement).style.background = 'var(--bg)';
+                if (accentBarRef.current) accentBarRef.current.style.transform = index === 0 ? 'scaleX(1)' : 'scaleX(0)';
+            }}
+        >
+            <div
+                ref={accentBarRef}
+                className="absolute top-0 left-0 right-0 h-[2px] origin-left"
+                style={{
+                    background: 'var(--accent)',
+                    transform: index === 0 ? 'scaleX(1)' : 'scaleX(0)',
+                    transition: 'transform 0.3s',
+                }}
+            />
+            <p className="font-mono text-[0.7rem] text-color-muted tracking-[0.1em]">{proj.num}</p>
+            <h3 className="font-display font-bold text-color-heading text-[1.35rem] leading-[1.2]">
+                {t(proj.titleKey)}
+            </h3>
+            <p className="text-[0.88rem] text-color-body flex-1">{t(`proj-${proj.id}-short`)}</p>
+            <div className="flex flex-wrap gap-[0.35rem]">
+                {stack.map((s) => <Tag key={s} label={s} />)}
+            </div>
+            <span className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-color-accent tracking-[0.06em] mt-2 after:content-['→']">
+                {t('proj-case-study')}
+            </span>
+        </div>
+    );
+};
 
 export default Projects;

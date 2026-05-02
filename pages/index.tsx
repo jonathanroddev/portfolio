@@ -10,7 +10,7 @@ const Home: NextPage = () => {
     <>
       <Head>
         <title>Jonathan Rodríguez</title>
-        <meta name="description" content="Jonathan Rodríguez's Portfolio" />
+        <meta name="description" content="Jonathan Rodríguez · Full Stack Developer especializado en arquitecturas escalables, microservicios y automatización de procesos." />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
