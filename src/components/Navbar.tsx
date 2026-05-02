@@ -1,159 +1,139 @@
-import { FC, useState, useRef, MutableRefObject, useEffect } from 'react';
+import { FC, useState, useEffect } from 'react';
 import { useTranslation } from 'next-i18next';
 import { NextRouter, useRouter } from 'next/router';
-import Link from 'next/link'
-import Image from 'next/image';
-import logo from '../assets/logo.svg';
-import language from '../assets/navbar/language.png';
+import Link from 'next/link';
+
+const NAV_SECTIONS = ['about', 'services', 'experience', 'projects', 'technologies', 'contact'] as const;
 
 const Navbar: FC = () => {
-    let { locale, locales }: { locale?: string, locales?: readonly string[] } = useRouter();
     const router: NextRouter = useRouter();
-    const { pathname, asPath }: { pathname: string, asPath: string } = useRouter();
-    locale = locale || 'es';
-    const sections: string[] = ['about', 'projects', 'technologies', 'courses'];
-    const { t }: { t: Function } = useTranslation('common');
-    const [toggleMenu, setToggleMenu] = useState<boolean>(false);
-    const [toggleMenuLanguage, setToggleMenuLanguage] = useState<boolean>(false);
-    const [isDark, setIsDark] = useState<boolean>(false); // Estado para el modo oscuro
-    const changeLocale: Function = (locale: string) => {
-        if (router) {
-            router.push(pathname, asPath, { locale });
-        }
-    };
-    const menuRef: MutableRefObject<HTMLDivElement | null> = useRef<HTMLDivElement>(null);
-    const closeOpenMenus: any = (e: MouseEvent) => {
-        if (menuRef.current && (toggleMenu || toggleMenuLanguage) && !menuRef.current.contains(e.target as Node)) {
-            setToggleMenu(false);
-            setToggleMenuLanguage(false);
-        }
-    };
-    if (typeof window !== "undefined") {
-        document.addEventListener('click', closeOpenMenus);
-    }
+    const { pathname, asPath, locale = 'es' } = router;
+    const { t } = useTranslation('common');
+
+    const [scrolled, setScrolled] = useState(false);
+    const [mobileOpen, setMobileOpen] = useState(false);
+
     useEffect(() => {
-        const theme = localStorage.getItem('theme');
-        if (theme === 'dark' || (!theme && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-            setIsDark(true);
-            document.documentElement.classList.add('dark');
-        }
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', onScroll, { passive: true });
+        return () => window.removeEventListener('scroll', onScroll);
     }, []);
 
-    const toggleDarkMode = () => {
-        if (isDark) {
-            document.documentElement.classList.remove('dark');
-            localStorage.setItem('theme', 'light');
-            setIsDark(false);
-        } else {
-            document.documentElement.classList.add('dark');
-            localStorage.setItem('theme', 'dark');
-            setIsDark(true);
-        }
+    const changeLocale = (next: string) => {
+        router.push(pathname, asPath, { locale: next });
     };
 
     return (
-        <nav id="navbar" className="bg-slate-700 border-gray-200 px-2 sm:px-4 py-2.5 relative dark:bg-slate-800 transition-colors duration-300">
-            <div ref={menuRef}
-                className="container flex flex-wrap justify-between items-center mx-auto lg:w-9/12">
-                <a href="#" className="flex items-center">
-                    <span className="flex items-center mr-3 h-6 sm:h-10">
-                        <Image src={logo} alt={t("alt-logo")} />
-                    </span>
-                    <span className="self-center text-lg md:text-xl font-recursive whitespace-nowrap text-slate-200 font-normal dark:text-slate-300 transition-colors duration-300">Jonathan Rodríguez</span>
-                </a>
-                <div className="flex items-center md:order-2 relative">
-                    <button
-                        onClick={toggleDarkMode}
-                        className="p-2 rounded-lg text-slate-200 hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors"
-                        aria-label="Toggle Dark Mode"
-                    >
-                        {isDark ? (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M3 12h2.25m.386-6.364l1.591 1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M12 7.5a4.5 4.5 0 110 9 4.5 4.5 0 010-9z" />
-                            </svg>
-                        ) : (
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-6 h-6">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.718 9.718 0 0118 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 003 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 009.002-5.998z" />
-                            </svg>
-                        )}
-                    </button>
-                    <button
-                        type="button"
-                        className="font-normal font-inter p-2 flex hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors rounded-lg"
-                        id="user-menu-button"
-                        aria-expanded="false"
-                        data-dropdown-toggle="dropdown"
-                        onClick={() => setToggleMenuLanguage(!toggleMenuLanguage)}>
-                        <span className="sr-only">Open language menu</span>
-                        <Image src={language} alt={t("alt-language")} />
-                    </button>
-                    <div
-                        className={`${!toggleMenuLanguage ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto transition duration-300 ease-in-out absolute top-7 right-6 w-fit z-50 text-base list-none rounded divide-y shadow bg-gray-700 divide-gray-600 dark:bg-slate-800`}
-                        id="dropdown"
-                    >
-                        <ul className="py-1" aria-labelledby="dropdown">
-                            {locales && locales.map((localeElement, index) => (
-                                <li key={index} className='hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors'>
-                                    <button onClick={() => changeLocale(localeElement)} className="block py-2 px-4 text-slate-200 hover:text-white hover:bg-transparent">
-                                        {t(localeElement)}
-                                    </button>
-                                </li>
-                            ))}
-                        </ul>
-                    </div>
-                    <button
-                        data-collapse-toggle="mobile-menu-2"
-                        type="button"
-                        className="inline-flex items-center p-2 ml-1 text-sm rounded-lg md:hidden focus:outline-none focus:ring-2 focus:ring-gray-200 text-slate-200 hover:bg-gray-700"
-                        aria-controls="mobile-menu-2"
-                        aria-expanded="false"
-                        onClick={() => setToggleMenu(!toggleMenu)}
-                    >
-                        <span className="sr-only">Open main menu</span>
-                        <svg
-                            className="w-6 h-6"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
+        <nav
+            className={[
+                'fixed top-0 left-0 right-0 z-[100]',
+                'flex items-center justify-between',
+                'px-10 py-5',
+                'border-b transition-all duration-300',
+                scrolled
+                    ? 'bg-[rgba(15,14,13,0.92)] backdrop-blur-md border-color-border'
+                    : 'bg-transparent border-transparent',
+            ].join(' ')}
+        >
+            {/* Logo */}
+            <a href="#" className="font-display font-bold text-[1.05rem] text-color-heading tracking-[-0.01em] no-underline">
+                Jonathan R.
+            </a>
+
+            {/* Desktop nav links */}
+            <ul className="hidden md:flex gap-8 list-none">
+                {NAV_SECTIONS.map((section) => (
+                    <li key={section}>
+                        <Link
+                            href={`#${section}`}
+                            className="text-[0.8rem] tracking-[0.1em] uppercase text-color-muted hover:text-color-heading transition-colors duration-200 no-underline"
                         >
-                            <path
-                                fillRule="evenodd"
-                                d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z"
-                                clipRule="evenodd"
-                            >
-                            </path>
-                        </svg>
-                        <svg
-                            className="hidden w-6 h-6"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path fillRule="evenodd"
-                                d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-                                clipRule="evenodd"
-                            >
-                            </path>
-                        </svg>
+                            {t(section)}
+                        </Link>
+                    </li>
+                ))}
+            </ul>
+
+            {/* Right side: lang switcher + CTA + mobile toggle */}
+            <div className="flex items-center gap-3">
+                {/* Language switcher */}
+                <div className="flex items-center gap-[0.15rem]">
+                    <button
+                        onClick={() => changeLocale('es')}
+                        className={[
+                            'bg-transparent border-none cursor-pointer font-mono text-[0.72rem] tracking-[0.08em] uppercase px-[0.4rem] py-[0.25rem] transition-colors duration-200',
+                            locale === 'es' ? 'text-color-accent' : 'text-color-muted hover:text-color-heading',
+                        ].join(' ')}
+                    >
+                        ES
+                    </button>
+                    <span className="text-color-border text-[0.8rem]">·</span>
+                    <button
+                        onClick={() => changeLocale('en')}
+                        className={[
+                            'bg-transparent border-none cursor-pointer font-mono text-[0.72rem] tracking-[0.08em] uppercase px-[0.4rem] py-[0.25rem] transition-colors duration-200',
+                            locale === 'en' ? 'text-color-accent' : 'text-color-muted hover:text-color-heading',
+                        ].join(' ')}
+                    >
+                        EN
                     </button>
                 </div>
-                <div
-                    className={`${!toggleMenu ? 'opacity-0 pointer-events-none' : 'opacity-100'} md:pointer-events-auto md:opacity-100 transition duration-300 ease-in-out justify-between items-center w-full md:flex md:w-auto md:order-1 md:relative absolute inset-x-0 md:top-0 top-10`}
-                    id="mobile-menu-2"
+
+                {/* CTA button */}
+                <Link
+                    href="#contact"
+                    className="hidden md:inline-block font-mono text-[0.8rem] tracking-[0.06em] px-5 py-2 border border-color-accent text-color-accent hover:bg-[var(--accent)] hover:text-bg-primary transition-colors duration-200 no-underline"
                 >
-                    <ul className="flex flex-col mt-4 md:flex-row md:space-x-8 md:mt-0 md:text-md font-normal font-inter bg-slate-700 md:px-0 px-8 md:pb-0 pb-2 dark:bg-slate-800 transition-colors duration-300">
-                        {sections.map((section, index) => (
-                            <li key={index}>
-                                <Link href={`#${section}`} locale={locale} className="block py-2 pr-4 pl-3 border-b border-gray-100 md:border-0 md:p-0 text-slate-200 hover:text-white hover:bg-slate-600 dark:hover:bg-slate-900 transition-colors md:rounded-lg" aria-current="page">
+                    {t('contact')}
+                </Link>
+
+                {/* Mobile menu toggle */}
+                <button
+                    className="md:hidden p-1 text-color-muted hover:text-color-heading transition-colors"
+                    onClick={() => setMobileOpen((v) => !v)}
+                    aria-label="Toggle menu"
+                >
+                    {mobileOpen ? (
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                            <path d="M4 4l14 14M18 4L4 18" />
+                        </svg>
+                    ) : (
+                        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round">
+                            <path d="M3 6h16M3 11h16M3 16h16" />
+                        </svg>
+                    )}
+                </button>
+            </div>
+
+            {/* Mobile menu */}
+            {mobileOpen && (
+                <div className="absolute top-full left-0 right-0 bg-[rgba(15,14,13,0.97)] backdrop-blur-md border-b border-color-border md:hidden">
+                    <ul className="flex flex-col list-none px-5 py-4 gap-1">
+                        {NAV_SECTIONS.map((section) => (
+                            <li key={section}>
+                                <Link
+                                    href={`#${section}`}
+                                    onClick={() => setMobileOpen(false)}
+                                    className="block py-3 font-mono text-[0.8rem] tracking-[0.1em] uppercase text-color-muted hover:text-color-heading transition-colors border-b border-color-border last:border-0 no-underline"
+                                >
                                     {t(section)}
                                 </Link>
                             </li>
                         ))}
+                        <li className="pt-3">
+                            <Link
+                                href="#contact"
+                                onClick={() => setMobileOpen(false)}
+                                className="inline-block font-mono text-[0.8rem] tracking-[0.06em] px-5 py-2 border border-color-accent text-color-accent no-underline"
+                            >
+                                {t('contact')}
+                            </Link>
+                        </li>
                     </ul>
                 </div>
-            </div>
+            )}
         </nav>
-    )
-}
+    );
+};
 
 export default Navbar;

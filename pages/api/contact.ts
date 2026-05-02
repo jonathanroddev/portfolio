@@ -1,33 +1,47 @@
-/* eslint-disable import/no-anonymous-default-export */
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { Email } from "../../src/models/Email";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
-    // require('dotenv').config();
-    // const email = req.body as Email;
-    // let nodemailer = require('nodemailer');
-    // const transporter = nodemailer.createTransport({
-    //     port: 465,
-    //     host: "smtp.gmail.com",
-    //     auth: {
-    //         user: process.env.SENDER_EMAIL,
-    //         pass: process.env.SENDER_PASSWORD,
-    //     },
-    //     secure: true,
-    // });
-    // const mailData = {
-    //     from: process.env.SENDER_EMAIL,
-    //     to: process.env.RECEIVER_EMAIL,
-    //     subject: email.subject !== "" ? email.subject : 'Sin asunto',
-    //     text: email.message + " | Email: " + email.email,
-    //     html: `<div>${email.message}</div><p>Email:
-    //   ${email.email}</p>`
-    // };
-    // transporter.sendMail(mailData, function (err: Error, info: any) {
-    //     if (err)
-    //         console.log(err)
-    //     else
-    //         console.log(info)
-    // })
-    // res.status(200)
+export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    if (req.method !== 'POST') {
+        return res.status(405).json({ error: 'Method not allowed' });
+    }
+
+    const { name, email, subject, message } = req.body as {
+        name: string;
+        email: string;
+        subject?: string;
+        message: string;
+    };
+
+    if (!name || !email || !message) {
+        return res.status(400).json({ error: 'Missing required fields' });
+    }
+
+    try {
+        const nodemailer = require('nodemailer');
+
+        const transporter = nodemailer.createTransport({
+            port: 465,
+            host: 'smtp.gmail.com',
+            auth: {
+                user: process.env.SENDER_EMAIL,
+                pass: process.env.SENDER_PASSWORD,
+            },
+            secure: true,
+        });
+
+        const mailSubject = subject?.trim() || 'Mensaje desde portfolio';
+
+        await transporter.sendMail({
+            from: process.env.SENDER_EMAIL,
+            to: process.env.RECEIVER_EMAIL,
+            subject: mailSubject,
+            text: `${message}\n\nNombre: ${name}\nEmail: ${email}`,
+            html: `<div>${message}</div><p>Nombre: ${name}</p><p>Email: ${email}</p>`,
+        });
+
+        return res.status(200).json({ ok: true });
+    } catch (err) {
+        console.error('[contact] sendMail error:', err);
+        return res.status(500).json({ error: 'Failed to send email' });
+    }
 }
