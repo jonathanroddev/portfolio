@@ -5,7 +5,9 @@ interface ModalProject {
     id: string;
     num: string;
     titleKey: string;
-    repo: string;
+    repo?: string;
+    pypi?: string;
+    demo?: string;
     problemKey: string;
     decisionsKeys: string[];
     stack: string[];
@@ -13,8 +15,36 @@ interface ModalProject {
 
 export const PROJECTS: ModalProject[] = [
     {
-        id: 'alfred',
+        id: 'audit',
         num: '001',
+        titleKey: 'proj-audit-title',
+        problemKey: 'proj-audit-problem',
+        decisionsKeys: [
+            'proj-audit-d1',
+            'proj-audit-d2',
+            'proj-audit-d3',
+            'proj-audit-d4',
+            'proj-audit-d5',
+        ],
+        stack: ['FastAPI', 'Python 3.12', 'React 19', 'PostgreSQL', 'LangChain', 'Docker', 'AWS Cognito'],
+    },
+    {
+        id: 'nasa',
+        num: '002',
+        titleKey: 'proj-nasa-title',
+        repo: 'https://github.com/jonathanroddev/nasa-apis-wrapper',
+        pypi: 'https://pypi.org/project/nasa-apis-wrapper/',
+        problemKey: 'proj-nasa-problem',
+        decisionsKeys: [
+            'proj-nasa-d1',
+            'proj-nasa-d2',
+            'proj-nasa-d3',
+        ],
+        stack: ['Python 3.12', 'Pydantic v2', 'requests', 'pytest'],
+    },
+    {
+        id: 'alfred',
+        num: '003',
         titleKey: 'proj-alfred-title',
         repo: 'https://github.com/jonathanroddev/Alfred',
         problemKey: 'proj-alfred-problem',
@@ -28,7 +58,7 @@ export const PROJECTS: ModalProject[] = [
     },
     {
         id: 'oniria',
-        num: '002',
+        num: '004',
         titleKey: 'proj-oniria-title',
         repo: 'https://github.com/jonathanroddev/oniria-back',
         problemKey: 'proj-oniria-problem',
@@ -43,7 +73,7 @@ export const PROJECTS: ModalProject[] = [
     },
     {
         id: 'portfolio',
-        num: '003',
+        num: '005',
         titleKey: 'proj-portfolio-title',
         repo: 'https://github.com/jonathanroddev/portfolio',
         problemKey: 'proj-portfolio-problem',
@@ -135,17 +165,41 @@ const ProjectModal: FC<Props> = ({ projectId, onClose }) => {
 
                 {/* Footer */}
                 <div
-                    className="px-8 py-5 flex items-center justify-between gap-4"
+                    className={`px-8 py-5 flex items-center gap-4 ${(project.repo || project.pypi) ? 'justify-between' : 'justify-end'}`}
                     style={{ borderTop: '1px solid var(--border)' }}
                 >
-                    <a
-                        href={project.repo}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-color-accent tracking-[0.06em] no-underline hover:gap-3 transition-all duration-200 after:content-['→']"
-                    >
-                        {t('modal-repo-link')}
-                    </a>
+                    <div className="flex items-center gap-4">
+                        {project.repo && (
+                            <a
+                                href={project.repo}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-color-accent tracking-[0.06em] no-underline hover:gap-3 transition-all duration-200 after:content-['→']"
+                            >
+                                {t('modal-repo-link')}
+                            </a>
+                        )}
+                        {project.pypi && (
+                            <a
+                                href={project.pypi}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-color-accent tracking-[0.06em] no-underline hover:gap-3 transition-all duration-200 after:content-['→']"
+                            >
+                                {t('modal-pypi-link')}
+                            </a>
+                        )}
+                        {project.demo && (
+                            <a
+                                href={project.demo}
+                                target="_blank"
+                                rel="noreferrer"
+                                className="inline-flex items-center gap-2 font-mono text-[0.75rem] text-color-accent tracking-[0.06em] no-underline hover:gap-3 transition-all duration-200 after:content-['→']"
+                            >
+                                {t('modal-demo-link')}
+                            </a>
+                        )}
+                    </div>
                     <button
                         onClick={onClose}
                         className="font-mono text-[0.75rem] text-color-muted tracking-[0.06em] px-4 py-2 hover:text-color-heading transition-colors duration-200"

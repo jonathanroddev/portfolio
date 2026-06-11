@@ -19,6 +19,8 @@ const SectionLabel: FC<{ label: string }> = ({ label }) => (
 );
 
 const PROJECT_STACKS: Record<string, string[]> = {
+    audit:     ['FastAPI', 'Python 3.12', 'React 19', 'PostgreSQL', 'Docker'],
+    nasa:      ['Python 3.12', 'Pydantic v2', 'pytest'],
     alfred:    ['Spring Boot 3.4', 'Java 21', 'PostgreSQL 17', 'Docker'],
     oniria:    ['FastAPI', 'Python 3.12', 'PostgreSQL 17', 'Docker'],
     portfolio: ['Next.js 15', 'React 19', 'TypeScript', 'Tailwind CSS'],
@@ -69,7 +71,7 @@ const Projects: FC = () => {
 
                         {/* Placeholder */}
                         <div
-                            ref={(el) => { cardRefs.current[3] = el; }}
+                            ref={(el) => { cardRefs.current[5] = el; }}
                             className="flex items-center justify-center"
                             style={{
                                 background: 'var(--bg2)',
